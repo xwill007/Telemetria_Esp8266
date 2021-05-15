@@ -44,10 +44,12 @@ class LoginActivity : AppCompatActivity() {
 
             val userDAO: UserDAO= MisUsuariosApp.database.UserDAO()
             val user: User= userDAO.searchUser(usuario)
+            val nombre = user.nombre
+
             if(user != null && user.clave == contrasena){
                 val intent = Intent(this,MainActivity::class.java)
-                intent.putExtra("email",email)
-                intent.putExtra("password",password)
+                intent.putExtra("email",usuario)
+                intent.putExtra("nombre",nombre)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
             }else{
