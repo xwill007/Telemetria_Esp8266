@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityRegisterBinding
 
 
