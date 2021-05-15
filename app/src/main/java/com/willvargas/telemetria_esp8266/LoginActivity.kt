@@ -19,8 +19,15 @@ class LoginActivity : AppCompatActivity() {
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
 
+        val data = intent.extras
+        val email = data?.getString("email")
+        val password = data?.getString("password")
+        loginBinding.textImputUser.setText(email).toString()
+        loginBinding.textImputPassword.setText(password).toString()
+        if (loginBinding.textImputPassword.length() >= 6) loginBinding.buttonLogin.isEnabled = true
+
         loginBinding.textViewRegistrarse.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
         }
 
@@ -33,10 +40,6 @@ class LoginActivity : AppCompatActivity() {
             val usuario = loginBinding.textImputUser.text.toString()
             val contrasena = loginBinding.textImputPassword.text.toString()
 
-            val data = intent.extras
-            val email = data?.getString("email")
-            val password = data?.getString("password")
-
             if ( (usuario == email) and (contrasena == password) ){
                 val intent = Intent(this,MainActivity::class.java)
                 intent.putExtra("email",email)
@@ -47,6 +50,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+
 
 
 }
