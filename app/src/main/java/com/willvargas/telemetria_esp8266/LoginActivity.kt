@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 
-
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginBinding: ActivityLoginBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +46,20 @@ class LoginActivity : AppCompatActivity() {
                 intent.putExtra("password",password)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
-            }else Toast.makeText(this, getString(R.string.fail_user_password), Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this, getString(R.string.fail_user_password), Toast.LENGTH_LONG).show()
+                cleanViews()
+            }
         }
 
     }
 
+    private fun cleanViews(){
+        with(loginBinding){
+            textImputUser.setText(" ")
+            textImputPassword.setText(" ")
+        }
+    }
 
 
 

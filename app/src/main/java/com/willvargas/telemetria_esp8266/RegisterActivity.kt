@@ -10,8 +10,6 @@ import androidx.core.widget.addTextChangedListener
 import com.willvargas.telemetria_esp8266.databinding.ActivityRegisterBinding
 
 
-private const val EMPTY = ""
-
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registerBinding: ActivityRegisterBinding
@@ -58,16 +56,6 @@ class RegisterActivity : AppCompatActivity() {
         val newUser = User(name,phoneNumber, email, password)
         users.add(newUser)
         goToLogin()
-    }
-
-    private fun cleanViews(){
-        with(registerBinding){
-            nameTextInputEditText.setText(EMPTY)
-            phoneTextInputEditText.setText(EMPTY)
-            emailEditText.setText(EMPTY)
-            passwordEditText.setText(EMPTY)
-            repPasswordEditText.setText(EMPTY)
-        }
     }
 
     private fun goToLogin() {
