@@ -7,14 +7,14 @@ import com.willvargas.telemetria_esp8266.data.local.entities.User
 interface UserDAO {
 
     @Insert
-    fun insertDeudor(deudor: User)
+    fun insertUser(user: User)
 
     @Query("SELECT * From tabla_usuarios WHERE nombre LIKE :nombre")
-    fun searchDeudor(nombre: String): User
+    fun searchUser(nombre: String): User
 
     @Delete
-    fun deleteDeudor(deudor: User)
+    fun deleteUser(deudor: User)
 
     @Update
-    fun updateDeudor(deudor: User)
+    fun updateUser(deudor: User)
 }

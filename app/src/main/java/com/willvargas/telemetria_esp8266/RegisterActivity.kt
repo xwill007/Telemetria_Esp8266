@@ -7,14 +7,15 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityRegisterBinding
+import java.sql.Types
 
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registerBinding: ActivityRegisterBinding
-    private var users: MutableList<User> = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
             if (email.isNotEmpty() and name.isNotEmpty() and phoneNumber.isNotEmpty() ) {
                 if (password == repPassword) {
                     registerBinding.repPasswordTextInputLayout.error = null
-                    saveUser( name, phoneNumber,email, password)
+                    guardarDeudorEnLocal(name, phoneNumber,email, password)
 
                 } else {
                     registerBinding.repPasswordTextInputLayout.error = getString(R.string.pasword_error)
@@ -52,12 +53,13 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-
-    private fun saveUser(name: String,phoneNumber: String, email: String, password: String ) {
-        val newUser = User(name,phoneNumber, email, password)
-        users.add(newUser)
+    private fun guardarDeudorEnLocal(name: String,phoneNumber: String, email: String, password: String) {
+        val usuario = User(id= Types.NULL, nombre=name, telefono=phoneNumber, correo=email, clave=password)
+        val userDAO : UserDAO = MisUsuariosApp.database.UserDAO()
+        userDAO.insertUser(usuario)
         goToLogin()
     }
+
 
     private fun goToLogin() {
         //val user =
