@@ -12,9 +12,20 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_agregarEquipoFragment"
+            android:icon="@drawable/ic_baseline_add_box_24"
+            android:title="@string/add_Equip" />
+        <item
+            android:id="@+id/nav_equipoFragment"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="@string/id_equip" />
     </group>
+
+
+
+
+
+
 </menu>
