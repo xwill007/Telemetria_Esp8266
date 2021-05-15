@@ -3,6 +3,9 @@
     package="com.willvargas.telemetria_esp8266">
 
     <application
+
+        android:name=".MisUsuariosApp"
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,6 +29,7 @@
 
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
+
 
     </application>
 
