@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
+import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -40,7 +42,9 @@ class LoginActivity : AppCompatActivity() {
             val usuario = loginBinding.textImputUser.text.toString()
             val contrasena = loginBinding.textImputPassword.text.toString()
 
-            if ( (usuario == email) and (contrasena == password) ){
+            val userDAO: UserDAO= MisUsuariosApp.database.UserDAO()
+            val user: User= userDAO.searchUser(usuario)
+            if(user != null && user.clave == contrasena){
                 val intent = Intent(this,MainActivity::class.java)
                 intent.putExtra("email",email)
                 intent.putExtra("password",password)

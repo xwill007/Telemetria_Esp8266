@@ -9,8 +9,8 @@ interface UserDAO {
     @Insert
     fun insertUser(user: User)
 
-    @Query("SELECT * From tabla_usuarios WHERE nombre LIKE :nombre")
-    fun searchUser(nombre: String): User
+    @Query("SELECT * From tabla_usuarios WHERE correo LIKE :correo")
+    fun searchUser(correo: String): User
 
     @Delete
     fun deleteUser(deudor: User)
