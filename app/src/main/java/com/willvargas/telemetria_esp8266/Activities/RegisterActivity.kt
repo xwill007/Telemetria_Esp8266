@@ -1,4 +1,4 @@
-package com.willvargas.telemetria_esp8266
+package com.willvargas.telemetria_esp8266.Activities
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
+import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityRegisterBinding
@@ -55,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun guardarDeudorEnLocal(name: String,phoneNumber: String, email: String, password: String) {
         val usuario = User(id= Types.NULL, nombre=name, telefono=phoneNumber, correo=email, clave=password)
-        val userDAO : UserDAO = MisUsuariosApp.database.UserDAO()
+        val userDAO : UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
         userDAO.insertUser(usuario)
         goToLogin()
     }
@@ -63,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun goToLogin() {
         //val user =
-        val intent = Intent(this,LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         intent.putExtra("email",registerBinding.emailEditText.text.toString())
         intent.putExtra("password",registerBinding.passwordEditText.text.toString())
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)  //finish() //destruye el registro en la pila para no volver a esta actividad con el boton atras

@@ -5,54 +5,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.willvargas.telemetria_esp8266.R
+import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
+import com.willvargas.telemetria_esp8266.data.local.dao.EquipoDAO
+import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
+import com.willvargas.telemetria_esp8266.databinding.FragmentAgregarEquipoBinding
+import java.sql.Types.NULL
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AgregarEquipoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AgregarEquipoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var agregarEquipoBinding: FragmentAgregarEquipoBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+        agregarEquipoBinding = FragmentAgregarEquipoBinding.inflate(inflater,container,false)
+
+        with(agregarEquipoBinding){
+            guardarEquipo.setOnClickListener {
+            val nombreContacto = EditTextContact.text.toString()
+            val telefonoContacto :String ? = EditTextPhone.text.toString()
+            val direccion :String ? = EditTextAddress.text.toString()
+            val idEquipo :String ? = textViewId.text.toString()
+            val contadorBebidas :Long? = textViewCount.text.toString().toLong()
+            val descripcion :String ? = textViewNote.text.toString()
+
+            val equipo = Equipo(id=NULL, nombreContacto, telefonoContacto, direccion, idEquipo, contadorBebidas, descripcion)
+            val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
+            equipoDAO.insertEquipo(equipo)
+            clearview()
+            }
+        }
+
+        return agregarEquipoBinding.root
+    }
+
+    private fun clearview() {
+        with(agregarEquipoBinding){
+            EditTextContact.setText(" ")
+            EditTextPhone.setText(" ")
+            EditTextAddress.setText(" ")
+            textViewId.setText(" ")
+            textViewCount.setText(" ")
+            textViewNote.setText(" ")
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agregar_equipo, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AgregarEquipoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                AgregarEquipoFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
 }

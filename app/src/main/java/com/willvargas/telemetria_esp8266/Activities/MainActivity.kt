@@ -1,13 +1,10 @@
-package com.willvargas.telemetria_esp8266
+package com.willvargas.telemetria_esp8266.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.TextView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +14,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
+import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val emailusuario = data?.getString("email")
         val nombreUsuario = data?.getString("nombre")
 
-        val userDAO: UserDAO = MisUsuariosApp.database.UserDAO()
+        val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
         val user: User = userDAO.searchUser(emailusuario.toString())
 
         val navigationView = this.findViewById<NavigationView>(R.id.nav_view)
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 val data = intent.extras
                 val email = data?.getString("email")
                 val password = data?.getString("password")
-                val intent = Intent(this,LoginActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 intent.putExtra("email",email)
                 intent.putExtra("password",password)
                 startActivity(intent)

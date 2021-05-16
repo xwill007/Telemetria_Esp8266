@@ -13,8 +13,8 @@ interface UserDAO {
     fun searchUser(correo: String): User
 
     @Delete
-    fun deleteUser(deudor: User)
+    fun deleteUser(user: User)
 
     @Update
-    fun updateUser(deudor: User)
+    fun updateUser(user: User)
 }

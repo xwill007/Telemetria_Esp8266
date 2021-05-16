@@ -1,9 +1,10 @@
-package com.willvargas.telemetria_esp8266
+package com.willvargas.telemetria_esp8266.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import com.willvargas.telemetria_esp8266.R
 import java.util.*
 import kotlin.concurrent.timerTask
 
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun goToMainActivity() {
-        val intent = Intent (this,LoginActivity::class.java)
+        val intent = Intent (this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
