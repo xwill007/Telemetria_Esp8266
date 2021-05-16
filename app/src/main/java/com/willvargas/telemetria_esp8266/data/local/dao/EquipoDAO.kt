@@ -11,7 +11,7 @@ interface EquipoDAO {
     fun insertEquipo(equipo: Equipo)
 
     @Query("SELECT * From tabla_equipos WHERE idEquipo LIKE :idEquipo")
-    fun searchEquipo(idEquipo: String): User
+    fun searchEquipo(idEquipo: String): Equipo
 
     @Delete
     fun deleteEquipo(equipo: Equipo)

@@ -5,55 +5,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.room.ColumnInfo
+import com.google.android.material.navigation.NavigationView
+import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
+import com.willvargas.telemetria_esp8266.data.local.dao.EquipoDAO
+import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
+import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
+import com.willvargas.telemetria_esp8266.data.local.entities.User
+import com.willvargas.telemetria_esp8266.databinding.FragmentEquipoBinding
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [equipoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class equipoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var equipoBinding: FragmentEquipoBinding
+
+    val idNombre = "punto niquia"  //obtener NombreID recibido de mainActivity al seleccionar item con un intent.
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        equipoBinding = FragmentEquipoBinding.inflate(inflater,container,false)
+        buscarEquipo(idNombre)
+        return equipoBinding.root
+    }
+
+    private fun buscarEquipo(idNombre: String) {
+        val equipoDAO: EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
+        val equipo = equipoDAO.searchEquipo(idNombre)
+
+        with(equipoBinding) {
+            textViewId.setText(equipo.idEquipo)
+            textViewContact.setText(equipo.nombreContacto)
+            textViewPhone.setText(equipo.telefonoContacto)
+            textViewAddress.setText(equipo.direccion)
+            //textViewLastMonth.setText(equipo.
+            //textViewMonth.setText(equipo.
+            //textViewLastDay.setText(equipo.
+            //textViewDay.setText(equipo.
+            textViewCount.setText(equipo.contadorBebidas.toString())
+            textViewNote.setText(equipo.descripcion)
+
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_equipo, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment equipoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                equipoFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
 }
