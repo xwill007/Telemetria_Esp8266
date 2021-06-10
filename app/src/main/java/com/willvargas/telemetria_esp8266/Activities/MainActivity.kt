@@ -16,14 +16,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
+import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
-import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +44,13 @@ class MainActivity : AppCompatActivity() {
         val nombreUsuario = data?.getString("nombre")
 
         val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
-        val user: User = userDAO.searchUser(emailusuario.toString())
+        userDAO.searchUser(emailusuario.toString())
 
         val navigationView = this.findViewById<NavigationView>(R.id.nav_view)
-        var tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
-        var tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderNombre)
-        tvEmailUsuario.setText(emailusuario)
-        tvNombreUsuario.setText(nombreUsuario)
+        val tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
+        val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
+        tvEmailUsuario.text = emailusuario
+        tvNombreUsuario.text = nombreUsuario
 
 
         // Passing each menu ID as a set of Ids because each
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_agregarEquipoFragment,
             R.id.nav_equipoFragment,
             ), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        this.setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
 
