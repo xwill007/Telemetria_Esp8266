@@ -1,16 +1,12 @@
 
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-Ç
-Rapp/src/main/java/com/willvargas/telemetria_esp8266/Activities/RegisterActivity.kt,5\d\5d97fdf462e3355f6f591d99f661990c6bb67968
 Ä
 Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/SplashActivity.kt,3\7\373268fe7737ffbef5a339e906115907c96905eb
 Ç
 Rapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/UsuariosDatabase.kt,c\b\cb608f5ed52dbdcb6fd6528c31d501b89549cdc4
 w
 Gapp/src/main/java/com/willvargas/telemetria_esp8266/MiBaseDeDatosApp.kt,d\3\d3f130d44c212b7135b2b1f09cf2872dfa559c6f
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 
 Oapp/src/main/java/com/willvargas/telemetria_esp8266/ui/AgregarEquipoFragment.kt,7\b\7bf57d1403401cbcc7957d0c8e569415294941fc
 Å

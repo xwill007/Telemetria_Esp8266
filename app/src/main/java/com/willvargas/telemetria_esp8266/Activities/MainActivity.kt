@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.firestore.FirebaseFirestore
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
