@@ -59,39 +59,27 @@ class RegisterActivity : AppCompatActivity() {
         val usuario = User(id= Types.NULL, nombre=name, telefono=phoneNumber, correo=email, clave=password)
         val userDAO : UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
         userDAO.insertUser(usuario)
-        guardarFirebase(name, phoneNumber, email)
+        guardarFirebaseEmailID(name, phoneNumber, email)
         goToLogin()
     }
 
-    private fun guardarFirebase(name: String, phoneNumber: String, email: String) {
+    private fun guardarFirebaseEmailID(name: String, phoneNumber: String, email: String) {
         val db = FirebaseFirestore.getInstance()
-        val user: MutableMap<String,Any> = HashMap()
-        user.put("name", name)
-        user.put("phoneNumber", phoneNumber)
-        user.put("email", email)
-
-        db.collection("users")
-            .add(user)
+        db.collection("users").document(email).set(
+            hashMapOf(
+                "name" to name,
+                "phoneNumber" to phoneNumber,
+                "email" to email
+            )
+        )
             .addOnSuccessListener {
                 Toast.makeText(this,"Usuario agregado correctamente", Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener{
                 Toast.makeText(this,"ERROR Usuario NO agregado ", Toast.LENGTH_LONG).show()
             }
-
-            /*.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "Error adding document", e);
-                }
-            });*/
     }
+
 
 
     private fun goToLogin() {
