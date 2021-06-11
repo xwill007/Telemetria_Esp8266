@@ -11,8 +11,6 @@ Gapp/src/main/java/com/willvargas/telemetria_esp8266/MiBaseDeDatosApp.kt,d\3\d3
 Oapp/src/main/java/com/willvargas/telemetria_esp8266/ui/AgregarEquipoFragment.kt,7\b\7bf57d1403401cbcc7957d0c8e569415294941fc
 Å
 Qapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/EquiposDatabase.kt,0\b\0b3ad2d83bb58cd955321ad4cbd6e326cf7c3092
-
-Oapp/src/main/java/com/willvargas/telemetria_esp8266/Activities/LoginActivity.kt,5\8\5830632e174f2d92a2d4715b9de53384d524f86a
 }
 Mapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/dao/UserDAO.kt,2\c\2c35b91d4f0410216e0026de18300b4c1ad2bea8
 

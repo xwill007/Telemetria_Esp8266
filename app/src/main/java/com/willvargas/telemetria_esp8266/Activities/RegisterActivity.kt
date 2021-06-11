@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
@@ -43,8 +44,10 @@ class RegisterActivity : AppCompatActivity() {
             if (email.isNotEmpty() and name.isNotEmpty() and phoneNumber.isNotEmpty() ) {
                 if (password == repPassword) {
                     registerBinding.repPasswordTextInputLayout.error = null
-                    guardarDeudorEnLocal(name, phoneNumber,email, password)
-
+                    //guardarDeudorEnLocal(name, phoneNumber,email, password)
+                    autenticarConEmailPassword(email,password)
+                    guardarFirebaseEmailID(name, phoneNumber, email)
+                    goToLogin()
                 } else {
                     registerBinding.repPasswordTextInputLayout.error = getString(R.string.pasword_error)
                 }
@@ -55,12 +58,21 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
+    private fun autenticarConEmailPassword(email: String, password: String) {
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+            .addOnCompleteListener(){
+                if (it.isSuccessful){
+                    Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(this,"error de autenticacion", Toast.LENGTH_LONG).show()
+                }
+            }
+    }
+
     private fun guardarDeudorEnLocal(name: String,phoneNumber: String, email: String, password: String) {
         val usuario = User(id= Types.NULL, nombre=name, telefono=phoneNumber, correo=email, clave=password)
         val userDAO : UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
         userDAO.insertUser(usuario)
-        guardarFirebaseEmailID(name, phoneNumber, email)
-        goToLogin()
     }
 
     private fun guardarFirebaseEmailID(name: String, phoneNumber: String, email: String) {

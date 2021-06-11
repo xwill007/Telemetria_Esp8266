@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
@@ -85,6 +86,9 @@ class MainActivity : AppCompatActivity() {
                 val email = data?.getString("email")
                 val password = data?.getString("password")
                 val intent = Intent(this, LoginActivity::class.java)
+
+                FirebaseAuth.getInstance().signOut()
+
                 intent.putExtra("email",email)
                 intent.putExtra("password",password)
                 startActivity(intent)

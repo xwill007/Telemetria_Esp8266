@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
@@ -48,12 +49,22 @@ class LoginActivity : AppCompatActivity() {
             val user: User= userDAO.searchUser(usuario)
             val nombre = user.nombre
 
-            if(user != null && user.clave == contrasena){
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("email",usuario)
-                intent.putExtra("nombre",nombre)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
-                startActivity(intent)
+            if(user != null && contrasena != null){
+                FirebaseAuth.getInstance()
+                    .signInWithEmailAndPassword(usuario,contrasena)
+                    .addOnCompleteListener(){
+                        if (it.isSuccessful){
+                            Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("email",usuario)
+                            intent.putExtra("nombre",nombre)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
+                            startActivity(intent)
+                        }else{
+                            Toast.makeText(this,"autenticacion invalida", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
             }else{
                 Toast.makeText(this, getString(R.string.fail_user_password), Toast.LENGTH_LONG).show()
                 cleanViews()
