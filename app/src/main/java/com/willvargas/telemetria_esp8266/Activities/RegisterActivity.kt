@@ -44,7 +44,6 @@ class RegisterActivity : AppCompatActivity() {
             if (email.isNotEmpty() and name.isNotEmpty() and phoneNumber.isNotEmpty() ) {
                 if (password == repPassword) {
                     registerBinding.repPasswordTextInputLayout.error = null
-                    //guardarDeudorEnLocal(name, phoneNumber,email, password)
                     autenticarConEmailPassword(email,password)
                     guardarFirebaseEmailID(name, phoneNumber, email)
                     goToLogin()
@@ -60,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun autenticarConEmailPassword(email: String, password: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(){
+            .addOnCompleteListener{
                 if (it.isSuccessful){
                     Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
                 }else{

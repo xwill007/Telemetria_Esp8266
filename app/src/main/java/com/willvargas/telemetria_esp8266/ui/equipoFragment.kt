@@ -26,11 +26,11 @@ class equipoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         equipoBinding = FragmentEquipoBinding.inflate(inflater,container,false)
-        buscarEquipo(idNombre)
+        //buscarEquipo(idNombre)
         return equipoBinding.root
     }
 
-    private fun buscarEquipo(idNombre: String) {
+    /*private fun buscarEquipo(idNombre: String) {
         val equipoDAO: EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
         val equipo = equipoDAO.searchEquipo(idNombre)
 
@@ -48,5 +48,5 @@ class equipoFragment : Fragment() {
 
         }
     }
-
+*/
 }

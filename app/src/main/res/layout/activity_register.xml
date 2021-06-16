@@ -97,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/rep_password"
                 android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

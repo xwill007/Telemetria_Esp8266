@@ -15,19 +15,20 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
+import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
 
+public lateinit var email: String
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private val db = FirebaseFirestore.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +42,10 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val data = intent.extras
-        val emailusuario = data?.getString("email")
-        val nombreUsuario = data?.getString("nombre")
+        val dataIntent = intent.extras
+        val emailusuario = dataIntent?.getString("email")
+        val nombreUsuario = dataIntent?.getString("nombre")
+        email =  emailusuario.toString()
 
         val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
         userDAO.searchUser(emailusuario.toString())
@@ -53,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
         tvEmailUsuario.text = emailusuario
         tvNombreUsuario.text = nombreUsuario
-
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

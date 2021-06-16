@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
+import com.willvargas.telemetria_esp8266.Activities.email
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.data.local.dao.EquipoDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
@@ -19,6 +23,9 @@ class AgregarEquipoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         agregarEquipoBinding = FragmentAgregarEquipoBinding.inflate(inflater,container,false)
 
+        val emailusuario = email
+        agregarEquipoBinding.textViewUsuario.setText(emailusuario).toString()
+
         with(agregarEquipoBinding){
             guardarEquipo.setOnClickListener {
             val nombreContacto = EditTextContact.text.toString()
@@ -28,9 +35,11 @@ class AgregarEquipoFragment : Fragment() {
             val contadorBebidas :Long? = textViewCount.text.toString().toLong()
             val descripcion :String ? = textViewNote.text.toString()
 
-            val equipo = Equipo(id=NULL, nombreContacto, telefonoContacto, direccion, idEquipo, contadorBebidas, descripcion)
+            val equipo = Equipo(id=NULL,nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion, imagenEquipo= null, emailUsuario= emailusuario)
             val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
-            equipoDAO.insertEquipo(equipo)
+
+            //equipoDAO.insertEquipo(equipo)
+            guardarFirebaseEquipo(equipo)
             clearview()
             }
         }
@@ -47,6 +56,26 @@ class AgregarEquipoFragment : Fragment() {
             textViewCount.setText(" ")
             textViewNote.setText(" ")
         }
+    }
+
+    private fun guardarFirebaseEquipo(equipo: Equipo) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users").document(email).collection("equipos").document(equipo.idEquipo.toString()).set(
+                hashMapOf(
+                        "nombreContacto" to equipo.nombreContacto.toString(),
+                        "telefonoContacto" to equipo.telefonoContacto.toString(),
+                        "direccion" to equipo.direccion.toString(),
+                        "cotadorBebidas" to equipo.contadorBebidas.toString(),
+                        "descripcion" to equipo.descripcion.toString(),
+                        "emailUsuario" to equipo.emailUsuario.toString(),
+                )
+        )
+                .addOnSuccessListener {
+                    Toast.makeText(getContext(),"Equipo agregado correctamente", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener{
+                    Toast.makeText(getContext(),"ERROR Equipo NO agregado ", Toast.LENGTH_LONG).show()
+                }
     }
 
 }

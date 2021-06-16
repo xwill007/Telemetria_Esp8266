@@ -21,6 +21,12 @@
         android:text="@string/title_new_equip"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/textViewUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

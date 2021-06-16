@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
-import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
@@ -49,10 +48,9 @@ class LoginActivity : AppCompatActivity() {
             val user: User= userDAO.searchUser(usuario)
             val nombre = user.nombre
 
-            if(user != null && contrasena != null){
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(usuario,contrasena)
-                    .addOnCompleteListener(){
+                    .addOnCompleteListener{
                         if (it.isSuccessful){
                             Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
@@ -65,19 +63,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
 
-            }else{
-                Toast.makeText(this, getString(R.string.fail_user_password), Toast.LENGTH_LONG).show()
-                cleanViews()
-            }
         }
 
-    }
-
-    private fun cleanViews(){
-        with(loginBinding){
-            textImputUser.setText(" ")
-            textImputPassword.setText(" ")
-        }
     }
 
 

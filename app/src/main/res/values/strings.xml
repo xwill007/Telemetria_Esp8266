@@ -53,6 +53,7 @@
     <string name="total_units">total unidades</string>
     <string name="units_today">unidades hoy</string>
     <string name="total_units_dispensed">total unidades dispensadas</string>
+    <string name="google">GOOGLE</string>
 
 
 </resources>
