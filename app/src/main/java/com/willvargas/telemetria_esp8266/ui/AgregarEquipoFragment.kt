@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.willvargas.telemetria_esp8266.Activities.email
@@ -35,10 +34,10 @@ class AgregarEquipoFragment : Fragment() {
             val contadorBebidas :Long? = textViewCount.text.toString().toLong()
             val descripcion :String ? = textViewNote.text.toString()
 
-            val equipo = Equipo(id=NULL,nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion, imagenEquipo= null, emailUsuario= emailusuario)
+            val equipo = Equipo(id=NULL,nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion)
             val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
 
-            //equipoDAO.insertEquipo(equipo)
+            equipoDAO.insertEquipo(equipo)
             guardarFirebaseEquipo(equipo)
             clearview()
             }
@@ -67,7 +66,7 @@ class AgregarEquipoFragment : Fragment() {
                         "direccion" to equipo.direccion.toString(),
                         "cotadorBebidas" to equipo.contadorBebidas.toString(),
                         "descripcion" to equipo.descripcion.toString(),
-                        "emailUsuario" to equipo.emailUsuario.toString(),
+                        //"emailUsuario" to equipo.emailUsuario.toString(),
                 )
         )
                 .addOnSuccessListener {

@@ -16,5 +16,5 @@ data class Equipo (
     @ColumnInfo(name = "contadorBebidas") val contadorBebidas :Long ? = null,
     @ColumnInfo(name = "descripcion") val descripcion :String ? = null,
     @ColumnInfo(name = "imagenEquipo") val imagenEquipo :String ? = null,
-    @ColumnInfo(name = "emailUsuario") val emailUsuario :String ? = null,
+    //@ColumnInfo(name = "emailUsuario") val emailUsuario :String ? = null,
     )
