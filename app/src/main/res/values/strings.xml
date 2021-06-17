@@ -54,6 +54,15 @@
     <string name="units_today">unidades hoy</string>
     <string name="total_units_dispensed">total unidades dispensadas</string>
     <string name="google">GOOGLE</string>
+    <string name="digite_nombre">digite nobre ID del equipo a ELIMINAR</string>
+    <string name="eliminar">ELIMINAR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="No_Existe">No Existe</string>
+    <string name="Desea_eliminar_a">\"Desea eliminar a \"</string>
+    <string name="aceptar">aceptar</string>
+    <string name="Equipo_Eliminado">Equipo Eliminado</string>
+    <string name="cancelar">cancelar</string>
 
 
 </resources>

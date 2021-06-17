@@ -10,10 +10,18 @@
             android:id="@+id/nav_agregarEquipoFragment"
             android:icon="@drawable/ic_baseline_add_box_24"
             android:title="@string/add_Equip" />
+
         <item
             android:id="@+id/nav_equipoFragment"
             android:icon="@drawable/ic_baseline_location_on_24"
             android:title="@string/id_equip" />
+
+        <item
+            android:id="@+id/nav_borrarEquipoFragment"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="@string/eliminar" />
+
+
     </group>
 
 

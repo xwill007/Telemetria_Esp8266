@@ -19,7 +19,6 @@ import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
-import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
 
 public lateinit var email: String
@@ -61,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
             R.id.nav_equipoFragment,
+            R.id.nav_borrarEquipoFragment,
             ), drawerLayout)
         this.setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_opciones, menu)
         return true
     }
 

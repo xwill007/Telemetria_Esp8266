@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_agregarEquipoFragment">
 
@@ -14,4 +13,8 @@
         android:id="@+id/nav_equipoFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.equipoFragment"
         android:label="equipoFragment" />
+    <fragment
+        android:id="@+id/nav_borrarEquipoFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.BorrarEquipoFragment"
+        android:label="BorrarEquipoFragment" />
 </navigation>
