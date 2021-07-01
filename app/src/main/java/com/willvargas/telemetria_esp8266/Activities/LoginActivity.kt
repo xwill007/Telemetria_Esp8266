@@ -12,7 +12,8 @@ import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.User
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class
+LoginActivity : AppCompatActivity() {
 
     private lateinit var loginBinding: ActivityLoginBinding
 
@@ -28,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         val password = data?.getString("password")
         loginBinding.textImputUser.setText(email).toString()
         loginBinding.textImputPassword.setText(password).toString()
+
         if (loginBinding.textImputPassword.length() >= 6) loginBinding.buttonLogin.isEnabled = true
 
         loginBinding.textViewRegistrarse.setOnClickListener {
