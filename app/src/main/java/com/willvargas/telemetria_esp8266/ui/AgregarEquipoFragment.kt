@@ -23,7 +23,6 @@ class AgregarEquipoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         agregarEquipoBinding = FragmentAgregarEquipoBinding.inflate(inflater,container,false)
 
-        val emailusuario = email.toString()
         agregarEquipoBinding.textViewUsuario.setText(email).toString()
 
         agregarEquipoBinding.guardarEquipo.isEnabled = false
@@ -41,8 +40,8 @@ class AgregarEquipoFragment : Fragment() {
             val idEquipo :String ? = textViewId.text.toString()
             val contadorBebidas :Long? = textViewCount.text.toString().toLong()
             val descripcion :String ? = textViewNote.text.toString()
-
-            val equipo = Equipo(id=NULL, nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion)
+            val emailusuario = email.toString()
+            val equipo = Equipo(id=NULL, nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion, emailUsuario= emailusuario)
             val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
 
             equipoDAO.insertEquipo(equipo)
@@ -74,7 +73,7 @@ class AgregarEquipoFragment : Fragment() {
                         "direccion" to equipo.direccion.toString(),
                         "cotadorBebidas" to equipo.contadorBebidas.toString(),
                         "descripcion" to equipo.descripcion.toString(),
-                        //"emailUsuario" to equipo.emailUsuario.toString(),
+                        "emailUsuario" to equipo.emailUsuario.toString(),
                 )
         )
                 .addOnSuccessListener {

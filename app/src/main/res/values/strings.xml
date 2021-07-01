@@ -63,6 +63,7 @@
     <string name="aceptar">aceptar</string>
     <string name="Equipo_Eliminado">Equipo Eliminado</string>
     <string name="cancelar">cancelar</string>
+    <string name="recordar">"Recordar "</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.willvargas.telemetria_esp8266.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         val dataIntent = intent.extras
         val emailusuario = dataIntent?.getString("email")
-        val nombreUsuario = dataIntent?.getString("nombre")
+        //val nombreUsuario = dataIntent?.getString("nombre")
         email =  emailusuario.toString()
 
         val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
         val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
         tvEmailUsuario.text = emailusuario
-        tvNombreUsuario.text = nombreUsuario
+        //tvNombreUsuario.text = nombreUsuario
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -89,6 +90,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
 
                 FirebaseAuth.getInstance().signOut()
+
+                val sp = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+                with(sp!!.edit()) {
+                    putString("active", "false")
+                    apply()
+                }
 
                 intent.putExtra("email",email)
                 intent.putExtra("password",password)
