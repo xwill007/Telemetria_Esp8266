@@ -22,7 +22,7 @@ import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
 
-public lateinit var email: String
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,18 +42,17 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val dataIntent = intent.extras
-        val emailusuario = dataIntent?.getString("email")
+        //val dataIntent = intent.extras
+        //val emailusuario = dataIntent?.getString("email")
         //val nombreUsuario = dataIntent?.getString("nombre")
-        email =  emailusuario.toString()
 
         val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
-        userDAO.searchUser(emailusuario.toString())
+        userDAO.searchUser(userEmail)
 
         val navigationView = this.findViewById<NavigationView>(R.id.nav_view)
         val tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
         val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
-        tvEmailUsuario.text = emailusuario
+        tvEmailUsuario.text = userEmail
         //tvNombreUsuario.text = nombreUsuario
 
         // Passing each menu ID as a set of Ids because each

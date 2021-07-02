@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.willvargas.telemetria_esp8266.Activities.email
+import com.willvargas.telemetria_esp8266.Activities.userEmail
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.data.local.dao.EquipoDAO
 import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
@@ -23,7 +23,7 @@ class AgregarEquipoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         agregarEquipoBinding = FragmentAgregarEquipoBinding.inflate(inflater,container,false)
 
-        agregarEquipoBinding.textViewUsuario.setText(email).toString()
+        agregarEquipoBinding.textViewUsuario.setText(userEmail).toString()
 
         agregarEquipoBinding.guardarEquipo.isEnabled = false
         agregarEquipoBinding.textViewCount.addTextChangedListener {
@@ -40,7 +40,7 @@ class AgregarEquipoFragment : Fragment() {
             val idEquipo :String ? = textViewId.text.toString()
             val contadorBebidas :Long? = textViewCount.text.toString().toLong()
             val descripcion :String ? = textViewNote.text.toString()
-            val emailusuario = email.toString()
+            val emailusuario = userEmail.toString()
             val equipo = Equipo(id=NULL, nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion, emailUsuario= emailusuario)
             val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
 
@@ -66,7 +66,7 @@ class AgregarEquipoFragment : Fragment() {
 
     private fun guardarFirebaseEquipo(equipo: Equipo) {
         val db = FirebaseFirestore.getInstance()
-        db.collection("users").document(email).collection("equipos").document(equipo.idEquipo.toString()).set(
+        db.collection("users").document(userEmail).collection("equipos").document(equipo.idEquipo.toString()).set(
                 hashMapOf(
                         "nombreContacto" to equipo.nombreContacto.toString(),
                         "telefonoContacto" to equipo.telefonoContacto.toString(),

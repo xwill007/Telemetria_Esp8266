@@ -11,8 +11,9 @@ import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 
-class
-LoginActivity : AppCompatActivity() {
+public lateinit var userEmail: String
+
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginBinding: ActivityLoginBinding
 
@@ -29,6 +30,10 @@ LoginActivity : AppCompatActivity() {
         loginBinding.textImputUser.setText(email).toString()
         loginBinding.textImputPassword.setText(password).toString()
 
+        val sp = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+        userEmail = sp.getString("email","").toString()
+        checkLogin(sp)
+
         if (loginBinding.textImputPassword.length() >= 6) loginBinding.buttonLogin.isEnabled = true
 
         loginBinding.textViewRegistrarse.setOnClickListener {
@@ -40,13 +45,9 @@ LoginActivity : AppCompatActivity() {
             loginBinding.buttonLogin.isEnabled = loginBinding.textImputPassword.length() >= 6
         }
 
-        val sp = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-        checkLogin(sp)
-
         loginBinding.buttonLogin.setOnClickListener{
             val usuario = loginBinding.textImputUser.text.toString()
             val contrasena = loginBinding.textImputPassword.text.toString()
-
             rememberUser(sp,usuario,contrasena)
 
             //val userDAO: UserDAO= MiBaseDeDatosApp.databaseUser.UserDAO()
@@ -59,7 +60,7 @@ LoginActivity : AppCompatActivity() {
                         if (it.isSuccessful){
                             Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
-                            intent.putExtra("email",usuario)
+                            //intent.putExtra("email",usuario)
                             //intent.putExtra("nombre",nombre)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
                             startActivity(intent)
