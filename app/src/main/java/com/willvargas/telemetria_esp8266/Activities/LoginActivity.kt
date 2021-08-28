@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.databinding.ActivityLoginBinding
 
 public lateinit var userEmail: String
@@ -16,14 +20,14 @@ public lateinit var userEmail: String
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginBinding: ActivityLoginBinding
-
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
 
+        auth= Firebase.auth
         val data = intent.extras
         val email = data?.getString("email")
         val password = data?.getString("password")
@@ -48,25 +52,37 @@ class LoginActivity : AppCompatActivity() {
         loginBinding.buttonLogin.setOnClickListener{
             val usuario = loginBinding.textImputUser.text.toString()
             val contrasena = loginBinding.textImputPassword.text.toString()
-            rememberUser(sp,usuario,contrasena)
+            //rememberUser(sp,usuario,contrasena)
 
             //val userDAO: UserDAO= MiBaseDeDatosApp.databaseUser.UserDAO()
             //val user: User= userDAO.searchUser(usuario)
             //val nombre = user.nombre
 
-                FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(usuario,contrasena)
-                    .addOnCompleteListener{
-                        if (it.isSuccessful){
-                            Toast.makeText(this,"Usuario autenticado correctamente", Toast.LENGTH_LONG).show()
+            auth.signInWithEmailAndPassword(usuario,contrasena)
+                .addOnCompleteListener{
+                    if (it.isSuccessful){
+                            val user = auth.currentUser
+                            Toast.makeText(this,getString(R.string.user_auth_firebase_ok), Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
-                            //intent.putExtra("email",usuario)
+                            intent.putExtra("email",usuario)
                             //intent.putExtra("nombre",nombre)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
                             startActivity(intent)
-                        }else{
-                            Toast.makeText(this,"autenticacion invalida", Toast.LENGTH_LONG).show()
+                    }else{
+                            var msg =""
+                            if(it.exception?.localizedMessage == "The email address is badly formatted."){ //There is no user record corresponding to this identifier. The user may have been deleted.
+                                msg = getString(R.string.bad_write_Email)
+
+                            }else if(it.exception?.localizedMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                                msg = getString(R.string.user_not_exist)
+
+                            }else if(it.exception?.localizedMessage == "The password is invalid or the user does not have a password."){
+                                msg = getString(R.string.fail_user_password)
+                            }
+
+                            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
                         }
+
                     }
 
         }

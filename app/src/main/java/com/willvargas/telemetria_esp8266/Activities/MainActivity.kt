@@ -42,24 +42,25 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        //val dataIntent = intent.extras
-        //val emailusuario = dataIntent?.getString("email")
+        val dataIntent = intent.extras
+        val emailusuario = dataIntent?.getString("email")
         //val nombreUsuario = dataIntent?.getString("nombre")
 
-        val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
-        userDAO.searchUser(userEmail)
+        //val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
+        //userDAO.searchUser(userEmail)
 
         val navigationView = this.findViewById<NavigationView>(R.id.nav_view)
         val tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
         val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
-        tvEmailUsuario.text = userEmail
-        //tvNombreUsuario.text = nombreUsuario
+        //tvEmailUsuario.text = userEmail
+        tvNombreUsuario.text = emailusuario
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
             R.id.nav_equipoFragment,
+            R.id.nav_listFragment,
             R.id.nav_borrarEquipoFragment,
             ), drawerLayout)
         this.setupActionBarWithNavController(navController, appBarConfiguration)

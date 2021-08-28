@@ -18,4 +18,7 @@ interface EquipoDAO {
 
     @Update
     fun updateEquipo(equipo: Equipo)
+
+    @Query("SELECT * FROM tabla_equipos")
+    fun getEquipos(): MutableList<Equipo>
 }

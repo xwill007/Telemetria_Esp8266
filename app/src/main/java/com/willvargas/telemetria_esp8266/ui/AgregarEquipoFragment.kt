@@ -41,6 +41,7 @@ class AgregarEquipoFragment : Fragment() {
             val contadorBebidas :Long? = textViewCount.text.toString().toLong()
             val descripcion :String ? = textViewNote.text.toString()
             val emailusuario = userEmail.toString()
+
             val equipo = Equipo(id=NULL, nombreContacto= nombreContacto, telefonoContacto= telefonoContacto,direccion= direccion,idEquipo= idEquipo, contadorBebidas= contadorBebidas, descripcion= descripcion, emailUsuario= emailusuario)
             val equipoDAO : EquipoDAO = MiBaseDeDatosApp.databaseEquipos.EquipoDAO()
 
@@ -77,10 +78,10 @@ class AgregarEquipoFragment : Fragment() {
                 )
         )
                 .addOnSuccessListener {
-                    Toast.makeText(getContext(),"Equipo agregado correctamente", Toast.LENGTH_LONG).show()
+                    Toast.makeText(getContext(),"Equipo agregado a Firebase correctamente", Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener{
-                    Toast.makeText(getContext(),"ERROR Equipo NO agregado ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(getContext(),"ERROR Equipo NO agregado a Firebase", Toast.LENGTH_LONG).show()
                 }
     }
 

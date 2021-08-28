@@ -17,6 +17,11 @@
             android:title="@string/id_equip" />
 
         <item
+            android:id="@+id/nav_listFragment"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="lista" />
+
+        <item
             android:id="@+id/nav_borrarEquipoFragment"
             android:icon="@drawable/ic_baseline_delete_forever_24"
             android:title="@string/eliminar" />

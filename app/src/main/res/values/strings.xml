@@ -64,6 +64,11 @@
     <string name="Equipo_Eliminado">Equipo Eliminado</string>
     <string name="cancelar">cancelar</string>
     <string name="recordar">"Recordar "</string>
+    <string name="user_register_ok">Usuario registrado correctamente</string>
+    <string name="bad_write_Email">El correo esta mal escrito</string>
+    <string name="user_not_exist">No existe el usario</string>
+    <string name="user_already_exists">El usuario ya existe</string>
+    <string name="user_auth_firebase_ok">\" Usuario autenticado correctamente por firebase Auth\"</string>
 
 
 </resources>
