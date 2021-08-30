@@ -6,11 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
+import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.CardViewEquiposItemBinding
 
-class EquiposAdapter: RecyclerView.Adapter<EquiposAdapter.ViewHolder>(){
+class EquiposAdapter(
+    private val onItemClicked: (EquiposServer) -> Unit,
+    ): RecyclerView.Adapter<EquiposAdapter.ViewHolder>(){
 
-    private var listaEquipos: MutableList<Equipo> = mutableListOf()
+    private var listaEquipos: MutableList<EquiposServer> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view_equipos_item,parent,false)
@@ -25,7 +28,7 @@ class EquiposAdapter: RecyclerView.Adapter<EquiposAdapter.ViewHolder>(){
         return listaEquipos.size
     }
 
-    fun appendItems(newItems: MutableList<Equipo>){
+    fun appendItems(newItems: MutableList<EquiposServer>){
         listaEquipos.clear()
         listaEquipos.addAll(newItems)
         notifyDataSetChanged()
@@ -33,7 +36,7 @@ class EquiposAdapter: RecyclerView.Adapter<EquiposAdapter.ViewHolder>(){
 
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
         private val binding = CardViewEquiposItemBinding.bind(view)
-        fun bind(equipo:Equipo){
+        fun bind(equipo:EquiposServer){
             with(binding) {
                 idEquipoTextView.text = equipo.idEquipo
                 contadorTextView.text = equipo.contadorBebidas.toString()
