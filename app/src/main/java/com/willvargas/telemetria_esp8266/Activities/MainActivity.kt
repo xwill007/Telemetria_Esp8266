@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var auth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +45,13 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val dataIntent = intent.extras
-        val emailusuario = dataIntent?.getString("email")
+        auth= Firebase.auth
+        val idF = auth.currentUser?.uid
+        val emailusuario = auth.currentUser?.email
+        //val nombreUsuario =
+
+        //val dataIntent = intent.extras
+        //val emailusuario = dataIntent?.getString("email")
         //val nombreUsuario = dataIntent?.getString("nombre")
 
         //val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
@@ -52,11 +60,10 @@ class MainActivity : AppCompatActivity() {
         val navigationView = this.findViewById<NavigationView>(R.id.nav_view)
         val tvEmailUsuario = navigationView.getHeaderView(0).findViewById<TextView>(R.id.textViewHeaderEmail)
         val tvNombreUsuario = navigationView.getHeaderView(0).findViewById<TextView>(textViewHeaderNombre)
-        //tvEmailUsuario.text = userEmail
-        tvNombreUsuario.text = emailusuario
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        tvEmailUsuario.text = emailusuario
+        //(tvNombreUsuario.text = nombreUsuario
+
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
             R.id.nav_equipoFragment,

@@ -28,6 +28,9 @@ class equipoFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         equipoBinding = FragmentEquipoBinding.inflate(inflater, container, false)
         //buscarEquipo(idNombre)
+
+
+
         descargarDatosFirebase(userEmail)
         return equipoBinding.root
     }

@@ -111,38 +111,32 @@ class RegisterActivity : AppCompatActivity() {
             val user = User(id=NULL, nombre=name, telefono=phoneNumber, correo=email, idF=idF)
             db.collection("users").document(email).set(user)
                 .addOnSuccessListener {
-                    Toast.makeText(
-                        this,
-                        "Usuario email agregado a firebase correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this,"Usuario email agregado a firebase correctamente",Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(
-                        this,
-                        "ERROR Usuario NO agregado a firebase DataBase",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(this,"ERROR Usuario NO agregado a firebase DataBase",Toast.LENGTH_LONG).show()
                 }
         }
     }
 
     private fun guardarDeudorEnLocal(name: String,phoneNumber: String, email: String) {
-
+        val idF = auth.currentUser?.uid
+        idF?.let { idF ->
             val usuario = User(
-                id = Types.NULL,
+                id = NULL,
                 nombre = name,
                 telefono = phoneNumber,
                 correo = email,
-                //idF = auth.currentUser?.uid
+                idF = idF
             )
             val userDAO: UserDAO = MiBaseDeDatosApp.databaseUser.UserDAO()
             userDAO.insertUser(usuario)
 
+        }
+
     }
 
     private fun goToLogin() {
-        //val user =
         val intent = Intent(this, LoginActivity::class.java)
         intent.putExtra("email",registerBinding.emailEditText.text.toString())
         intent.putExtra("password",registerBinding.passwordEditText.text.toString())
