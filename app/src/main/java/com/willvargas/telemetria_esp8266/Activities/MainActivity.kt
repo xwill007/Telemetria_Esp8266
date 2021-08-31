@@ -25,7 +25,6 @@ import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
 
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding

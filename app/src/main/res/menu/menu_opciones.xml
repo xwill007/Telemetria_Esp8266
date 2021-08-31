@@ -4,7 +4,13 @@
     <item
         android:id="@+id/logout_menu"
         android:title="@string/logout_menu"
-
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/Configuraciones_menu"
+        android:title="@string/configurations"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
 </menu>

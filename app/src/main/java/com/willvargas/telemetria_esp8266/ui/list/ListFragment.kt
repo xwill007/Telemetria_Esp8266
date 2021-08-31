@@ -20,6 +20,7 @@ import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
 import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.FragmentListBinding
 
+
 class ListFragment : Fragment() {
 
     private lateinit var listViewModel: ListViewModel
@@ -55,7 +56,7 @@ class ListFragment : Fragment() {
     }
 
     private fun onDebtorItemClicked(equipo: EquiposServer){
-        findNavController().navigate(ListFragmentDirections.actionNavListFragmentToDetailFragment(equipo=equipo))
+        findNavController().navigate(ListFragmentDirections.actionNavigationListFragmentToDetailFragment(equipo))
     }
 
     private fun cargarDeFirebase() {

@@ -71,6 +71,11 @@
     <string name="user_auth_firebase_ok">\" Usuario autenticado correctamente por firebase Auth\"</string>
     <string name="equipment_added_successfully">Equipo agregado a Firebase correctamente</string>
     <string name="equipment_not_added">ERROR Equipo NO agregado a Firebase</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="configurations">Configuraciones</string>
 
 
 </resources>

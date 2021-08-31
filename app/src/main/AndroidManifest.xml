@@ -3,16 +3,17 @@
     package="com.willvargas.telemetria_esp8266">
 
     <application
-
         android:name=".MiBaseDeDatosApp"
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Telemetria_Esp8266">
-
+        <activity
+            android:name=".Activities.BottomActivity"
+            android:exported="true"
+            android:label="@string/title_activity_bottom" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,17 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Telemetria_Esp8266.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.Telemetria_Esp8266.NoActionBar"></activity>
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.RegisterActivity" />
-
-
     </application>
 
 </manifest>
