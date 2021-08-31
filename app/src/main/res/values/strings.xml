@@ -76,6 +76,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="configurations">Configuraciones</string>
+    <string name="device_list">lista de equipos</string>
+    <string name="add_device">Agregar Equipo</string>
+    <string name="delete_device">Borrar Equipo</string>
 
 
 </resources>

@@ -26,18 +26,21 @@
     <fragment
         android:id="@+id/navigation_listFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.list.ListFragment"
-        android:label="lista de equipos"
+        android:label="@string/device_list"
         tools:layout="@layout/fragment_list" >
         <action
-            android:id="@+id/action_navigation_listFragment_to_detailFragment"
+            android:id="@+id/action_nav_listFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.willvargas.telemetria_esp8266.DetailFragment"
-        android:label="DetailFragment" >
+        android:label="@string/info_Equip"
+        tools:layout="@layout/fragment_detail" >
         <argument
             android:name="equipo"
             app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
     </fragment>
+
 </navigation>
