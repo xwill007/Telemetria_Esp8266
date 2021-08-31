@@ -22,6 +22,7 @@ class EquiposAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listaEquipos[position])
+        holder.itemView.setOnClickListener {onItemClicked(listaEquipos[position])}
     }
 
     override fun getItemCount(): Int {

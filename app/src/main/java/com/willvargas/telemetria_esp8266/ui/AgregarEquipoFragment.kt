@@ -37,6 +37,7 @@ class AgregarEquipoFragment : Fragment() {
         agregarEquipoBinding.textViewUsuario.setText(emailusuario).toString()
 
         agregarEquipoBinding.guardarEquipo.isEnabled = false
+
         agregarEquipoBinding.textViewCount.addTextChangedListener {
             agregarEquipoBinding.guardarEquipo.isEnabled = (agregarEquipoBinding.textViewCount.length() >= 1)and(agregarEquipoBinding.textViewId.length() >= 2)
         }

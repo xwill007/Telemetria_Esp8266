@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
-            R.id.nav_equipoFragment,
             R.id.nav_listFragment,
             R.id.nav_borrarEquipoFragment,
             ), drawerLayout)

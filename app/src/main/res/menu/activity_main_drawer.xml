@@ -12,13 +12,8 @@
             android:title="@string/add_Equip" />
 
         <item
-            android:id="@+id/nav_equipoFragment"
-            android:icon="@drawable/ic_baseline_location_on_24"
-            android:title="@string/id_equip" />
-
-        <item
             android:id="@+id/nav_listFragment"
-            android:icon="@drawable/ic_baseline_location_on_24"
+            android:icon="@drawable/ic_baseline_list"
             android:title="lista" />
 
         <item

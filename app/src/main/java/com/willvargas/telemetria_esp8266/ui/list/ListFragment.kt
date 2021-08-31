@@ -54,11 +54,8 @@ class ListFragment : Fragment() {
 
     }
 
-
-
     private fun onDebtorItemClicked(equipo: EquiposServer){
-        // findNavController().navigate(ListFragmentDirections.actionNavigationListToDetailFragment())
-
+        findNavController().navigate(ListFragmentDirections.actionNavListFragmentToDetailFragment(equipo=equipo))
     }
 
     private fun cargarDeFirebase() {

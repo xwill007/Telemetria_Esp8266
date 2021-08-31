@@ -1,5 +1,6 @@
 package com.willvargas.telemetria_esp8266.data.server
 
+import java.io.Serializable
 
 
 class EquiposServer (
@@ -12,4 +13,4 @@ class EquiposServer (
     val descripcion :String ? = null,
     val imagenEquipo :String ? = null,
     val emailUsuario :String ? = null
-)
+) :Serializable
