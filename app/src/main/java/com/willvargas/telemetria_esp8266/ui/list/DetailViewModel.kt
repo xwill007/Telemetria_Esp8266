@@ -1,4 +1,4 @@
-package com.willvargas.telemetria_esp8266
+package com.willvargas.telemetria_esp8266.ui.list
 
 import androidx.lifecycle.ViewModel
 

@@ -1,13 +1,18 @@
-package com.willvargas.telemetria_esp8266
+package com.willvargas.telemetria_esp8266.ui.list
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.FragmentDetailBinding
 
@@ -26,6 +31,9 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         detailBinding = FragmentDetailBinding.inflate(inflater,container,false)
+
+        obtenerContadores()
+
         return detailBinding.root
     }
 
@@ -34,6 +42,7 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         val equipo : EquiposServer = args.equipo
         Toast.makeText(requireContext(),equipo.idEquipo,Toast.LENGTH_LONG).show()
+
         with(detailBinding) {
             textViewId.setText(equipo.idEquipo)
             textViewContact.setText(equipo.nombreContacto)
@@ -43,9 +52,31 @@ class DetailFragment : Fragment() {
             //textViewMonth.setText(equipo.
             //textViewLastDay.setText(equipo.
             //textViewDay.setText(equipo.
-            textViewCount.setText(equipo.contadorBebidas.toString())
             textViewNote.setText(equipo.descripcion)
         }
+
+    }
+
+    fun obtenerContadores(){
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference().child("ESP01").child("contador")
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()){
+                    var value = dataSnapshot.getValue()
+                    Log.d("contador", "Value is: $value")
+                    detailBinding.textViewCount.setText(value.toString())
+
+                }else Log.d("contador", "no existe.")
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w("contador", "Failed to read value.", error.toException())
+            }
+
+        })
 
     }
 

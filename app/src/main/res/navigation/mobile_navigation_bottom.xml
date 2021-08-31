@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.willvargas.telemetria_esp8266.DetailFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.list.DetailFragment"
         android:label="@string/info_Equip"
         tools:layout="@layout/fragment_detail" >
         <argument
