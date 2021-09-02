@@ -66,7 +66,7 @@ class DetailFragment : Fragment() {
                 if (dataSnapshot.exists()){
                     var value = dataSnapshot.getValue()
                     Log.d("contador", "Value is: $value")
-                    detailBinding.textViewCount.setText(value.toString())
+                    detailBinding.textViewDay.setText(value.toString())
 
                 }else Log.d("contador", "no existe.")
 

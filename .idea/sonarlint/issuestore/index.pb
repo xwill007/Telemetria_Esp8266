@@ -1,14 +1,10 @@
 
-X
-(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 Ä
 Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/SplashActivity.kt,3\7\373268fe7737ffbef5a339e906115907c96905eb
 Ç
 Rapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/UsuariosDatabase.kt,c\b\cb608f5ed52dbdcb6fd6528c31d501b89549cdc4
 w
 Gapp/src/main/java/com/willvargas/telemetria_esp8266/MiBaseDeDatosApp.kt,d\3\d3f130d44c212b7135b2b1f09cf2872dfa559c6f
-
-Oapp/src/main/java/com/willvargas/telemetria_esp8266/ui/AgregarEquipoFragment.kt,7\b\7bf57d1403401cbcc7957d0c8e569415294941fc
 Å
 Qapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/EquiposDatabase.kt,0\b\0b3ad2d83bb58cd955321ad4cbd6e326cf7c3092
 }
@@ -17,3 +13,11 @@ Mapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/dao/UserDAO.kt,
 Oapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/dao/EquipoDAO.kt,5\1\516792f6ff5915905a97f370454a80229d92edbd
 
 Oapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/entities/User.kt,5\3\53d9d93a1b5641e7368d671e6de1f61cac1547e3
+Å
+Qapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/entities/Equipo.kt,3\b\3b1d8731531db1f20a76a848619d51970120342c
+Ç
+Rapp/src/main/java/com/willvargas/telemetria_esp8266/Activities/RegisterActivity.kt,5\d\5d97fdf462e3355f6f591d99f661990c6bb67968
+{
+Kapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/ListFragment.kt,6\e\6ebb480b2c8b5df020b5a3847d06079ae1404a04
+~
+Napp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/DetailViewModel.kt,a\4\a46bef6e36c8841504b2b76bfefd1f8abafe9424

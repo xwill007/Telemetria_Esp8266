@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                             val user = auth.currentUser
                             Toast.makeText(this,getString(R.string.user_auth_firebase_ok), Toast.LENGTH_LONG).show()
-                            val intent = Intent(this, BottomActivity::class.java)
+                            val intent = Intent(this, MainActivity::class.java)
                             intent.putExtra("email",usuario)
                             //intent.putExtra("nombre",nombre)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)

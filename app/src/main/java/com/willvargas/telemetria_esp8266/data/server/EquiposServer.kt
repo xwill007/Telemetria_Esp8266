@@ -11,6 +11,6 @@ class EquiposServer (
     val idEquipo :String ? = null,
     val contadorBebidas :Long ? = null,
     val descripcion :String ? = null,
-    val imagenEquipo :String ? = null,
+    val urlPicture :String ? = null,
     val emailUsuario :String ? = null
 ) :Serializable

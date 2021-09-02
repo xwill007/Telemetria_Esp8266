@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.local.entities.Equipo
 import com.willvargas.telemetria_esp8266.data.server.EquiposServer
@@ -41,6 +42,9 @@ class EquiposAdapter(
             with(binding) {
                 idEquipoTextView.text = equipo.idEquipo
                 contadorTextView.text = equipo.contadorBebidas.toString()
+                if (equipo.urlPicture != null){
+                    Picasso.get().load(equipo.urlPicture).into(pictureImageView);
+                }
             }
         }
     }

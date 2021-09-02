@@ -104,19 +104,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save" />
+
     <Button
-        android:id="@+id/button_"
+        android:id="@+id/agregar_imagen_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_image" />
 
 
     <ImageView
-        android:id="@+id/imageViewEquip"
+        android:id="@+id/take_picture_image_view"
         android:layout_width="match_parent"
         android:layout_height="315dp"
         android:contentDescription="@string/empty"
-        android:src="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@drawable/ic_baseline_camera" />
 
 </LinearLayout>
 </ScrollView>

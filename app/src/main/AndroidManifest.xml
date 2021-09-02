@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.willvargas.telemetria_esp8266">
 
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
+
     <application
         android:name=".MiBaseDeDatosApp"
         android:allowBackup="true"
@@ -14,7 +17,8 @@
             android:name=".Activities.BottomActivity"
             android:exported="true"
             android:label="@string/title_activity_bottom" />
-        <activity android:name=".Activities.SplashActivity">
+        <activity android:name=".Activities.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
