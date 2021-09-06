@@ -1,6 +1,4 @@
 
-€
-Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/SplashActivity.kt,3\7\373268fe7737ffbef5a339e906115907c96905eb
 ‚
 Rapp/src/main/java/com/willvargas/telemetria_esp8266/data/local/UsuariosDatabase.kt,c\b\cb608f5ed52dbdcb6fd6528c31d501b89549cdc4
 w
@@ -21,3 +19,9 @@ Rapp/src/main/java/com/willvargas/telemetria_esp8266/Activities/RegisterActivity
 Kapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/ListFragment.kt,6\e\6ebb480b2c8b5df020b5a3847d06079ae1404a04
 ~
 Napp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/DetailViewModel.kt,a\4\a46bef6e36c8841504b2b76bfefd1f8abafe9424
+€
+Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/BottomActivity.kt,c\8\c863509798cad4d3965484aba547a96ab1e2186b
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+}
+Mapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/DetailFragment.kt,f\c\fc047e4e07fd12429f3f38eb5986e2c9ca70d09f
