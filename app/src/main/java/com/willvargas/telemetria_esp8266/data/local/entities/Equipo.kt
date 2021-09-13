@@ -13,7 +13,7 @@ data class Equipo (
     @ColumnInfo(name = "telefonoContacto") val telefonoContacto :String ? = null,
     @ColumnInfo(name = "direccion") val direccion :String ? = null,
     @ColumnInfo(name = "idEquipo") val idEquipo :String ? = null,
-    @ColumnInfo(name = "contadorBebidas") val contadorBebidas :Long ? = null,
+    @ColumnInfo(name = "contadorBebidas") val contadorBebidas :String? = null,
     @ColumnInfo(name = "descripcion") val descripcion :String ? = null,
     @ColumnInfo(name = "imagenEquipo") val imagenEquipo :String ? = null,
     @ColumnInfo(name = "emailUsuario") val emailUsuario :String ? = null,

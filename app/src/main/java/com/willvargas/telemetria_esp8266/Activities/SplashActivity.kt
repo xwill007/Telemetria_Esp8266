@@ -4,12 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.willvargas.telemetria_esp8266.R
-import java.security.AccessController.getContext
 import java.util.*
 import kotlin.concurrent.timerTask
 
@@ -25,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         val timer = Timer()
         timer.schedule(timerTask {
             if (auth.currentUser != null){
-                goToMainActivity() //USUARIO autenticado
+                goToMainActivity()
             }else{goToLoginActivity()}
         },1000
         )

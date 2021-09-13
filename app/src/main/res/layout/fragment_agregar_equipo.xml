@@ -84,7 +84,8 @@
             android:id="@+id/textViewCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/count_dispensation"/>
+            android:hint="@string/count_dispensation"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -99,25 +100,34 @@
             android:hint="@string/description"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <ImageView
+        android:id="@+id/take_picture_image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/add_image_to_continue"
+        app:srcCompat="@drawable/ic_baseline_camera" />
+
+    <Button
+        android:id="@+id/buscar_imagen_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_image" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/add_image_to_continue"
+        android:textColor="@color/Verde_500" />
+
     <Button
         android:id="@+id/guardar_equipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save" />
-
-    <Button
-        android:id="@+id/agregar_imagen_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_image" />
-
-
-    <ImageView
-        android:id="@+id/take_picture_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="315dp"
-        android:contentDescription="@string/empty"
-        app:srcCompat="@drawable/ic_baseline_camera" />
 
 </LinearLayout>
 </ScrollView>

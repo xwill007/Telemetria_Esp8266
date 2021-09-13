@@ -32,6 +32,7 @@ class AgregarEquipoFragment : Fragment() {
     private lateinit var agregarEquipoBinding: FragmentAgregarEquipoBinding
     private lateinit var auth: FirebaseAuth
     private val File = 1
+    private var conFoto = false
 
     var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result->
@@ -49,27 +50,28 @@ class AgregarEquipoFragment : Fragment() {
     ): View? {
         agregarEquipoBinding = FragmentAgregarEquipoBinding.inflate(inflater, container, false)
 
-
+        //conFoto = false
         auth = Firebase.auth
         val idF = auth.currentUser?.uid
         val emailusuario = auth.currentUser?.email
 
         with(agregarEquipoBinding) {
             textViewUsuario.setText(emailusuario).toString()
-            agregarImagenButton.setOnClickListener { buscarImagen() }
+            //agregarImagenButton.setOnClickListener { buscarImagen() }
             takePictureImageView.setOnClickListener { tomarFoto() }
             guardarEquipo.setOnClickListener { subirFotoFirebase() }
 
             guardarEquipo.isEnabled = false
-            textViewCount.addTextChangedListener {
-                guardarEquipo.isEnabled =
-                    (textViewCount.length() >= 1) and (textViewId.length() >= 2)
+            textViewId.addTextChangedListener {
+                guardarEquipo.isEnabled = (textViewId.length() >= 2) and (conFoto)
             }
         }
         return agregarEquipoBinding.root
     }
 
     private fun tomarFoto() {
+        conFoto = true
+        agregarEquipoBinding.guardarEquipo.isEnabled =  (agregarEquipoBinding.textViewId.length() >= 2)
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         resultLauncher.launch(intent)
     }
@@ -127,7 +129,7 @@ class AgregarEquipoFragment : Fragment() {
                     val telefonoContacto: String? = EditTextPhone.text.toString()
                     val direccion: String? = EditTextAddress.text.toString()
                     val idEquipo: String? = textViewId.text.toString()
-                    val contadorBebidas: Long? = textViewCount.text.toString().toLong()
+                    val contadorBebidas: String? = textViewCount.text.toString()
                     val descripcion: String? = textViewNote.text.toString()
                     val emailUsuario = auth.currentUser?.email
 

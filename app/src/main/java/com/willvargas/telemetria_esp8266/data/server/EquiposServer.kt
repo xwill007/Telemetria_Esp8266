@@ -9,7 +9,7 @@ class EquiposServer (
     val telefonoContacto :String ? = null,
     val direccion :String ? = null,
     val idEquipo :String ? = null,
-    val contadorBebidas :Long ? = null,
+    val contadorBebidas :String ? = null,
     val descripcion :String ? = null,
     val urlPicture :String ? = null,
     val emailUsuario :String ? = null
