@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -17,15 +18,21 @@
             android:title="lista" />
 
         <item
+            android:id="@+id/nav_mapsFragment"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="Mapas" />
+
+        <item
             android:id="@+id/nav_borrarEquipoFragment"
             android:icon="@drawable/ic_baseline_delete_forever_24"
-            android:title="@string/eliminar" />
+            android:title="@string/delete_device" />
+
+
+
+
 
 
     </group>
-
-
-
 
 
 

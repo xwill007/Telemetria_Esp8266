@@ -81,6 +81,7 @@
     <string name="delete_device">Borrar Equipo</string>
     <string name="search_image">Buscar imagen</string>
     <string name="add_image_to_continue">Agregue o capture una imagen para continuar</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>

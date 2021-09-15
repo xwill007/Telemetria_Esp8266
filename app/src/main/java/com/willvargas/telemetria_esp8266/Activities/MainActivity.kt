@@ -66,7 +66,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
             R.id.nav_listFragment,
-            R.id.nav_borrarEquipoFragment,
+            R.id.nav_mapsFragment,
+            R.id.nav_borrarEquipoFragment
             ), drawerLayout)
         this.setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -106,6 +107,10 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("password",password)
                 startActivity(intent)
                 finish()
+            }
+            R.id.Configuraciones_menu ->{
+                val intent = Intent(this, BottomActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

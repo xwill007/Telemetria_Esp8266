@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=26:CB:07:5D:67:E0:15:74:9D:0C:FD:12:B5:D2:3F:74:16:DE:B1:B2%3Bcom.willvargas.telemetria_esp8266.ui
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.willvargas.telemetria_esp8266.ui
+
+    SHA-1 certificate fingerprint:
+    26:CB:07:5D:67:E0:15:74:9D:0C:FD:12:B5:D2:3F:74:16:DE:B1:B2
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD7JCInFdtzHzKG6GL2AxdC8rvoFwNqabs</string>
+</resources>
