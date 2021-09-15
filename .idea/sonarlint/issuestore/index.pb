@@ -27,7 +27,5 @@ Mapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/DetailFragment.kt,
 Mapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/EquiposAdapter.kt,e\c\ec05fa6f8011eea2cdbe38234b638a0a46529f1e
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-
-Oapp/src/main/java/com/willvargas/telemetria_esp8266/ui/AgregarEquipoFragment.kt,7\b\7bf57d1403401cbcc7957d0c8e569415294941fc
 €
 Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/SplashActivity.kt,3\7\373268fe7737ffbef5a339e906115907c96905eb

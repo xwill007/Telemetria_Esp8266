@@ -130,10 +130,12 @@
         android:text="@string/save" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/fragmentContainerView"
         android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
-        android:layout_width="0dp"
-        android:layout_height="400dp" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        />
 
 
 </LinearLayout>
