@@ -29,3 +29,15 @@ Mapp/src/main/java/com/willvargas/telemetria_esp8266/ui/list/EquiposAdapter.kt,
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 €
 Papp/src/main/java/com/willvargas/telemetria_esp8266/Activities/SplashActivity.kt,3\7\373268fe7737ffbef5a339e906115907c96905eb
+^
+.app/src/release/res/values/google_maps_api.xml,8\a\8ad28fcd8d693ab58d4fdb7d36965532163ebfa3
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+
+Oapp/src/main/java/com/willvargas/telemetria_esp8266/ui/AgregarEquipoFragment.kt,7\b\7bf57d1403401cbcc7957d0c8e569415294941fc
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+~
+Napp/src/main/java/com/willvargas/telemetria_esp8266/Activities/MainActivity.kt,9\b\9b5aa111f1e7d525b4903147cbe2c7c4d320251e
+v
+Fapp/src/main/java/com/willvargas/telemetria_esp8266/ui/MapsFragment.kt,f\9\f94e134fc042ac87530e962ff83ef4e81df76b52

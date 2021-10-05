@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/nav_mapsFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
-        android:label="Mapas"
+        android:label="@string/maps"
         tools:layout="@layout/fragment_maps" />
 
     <fragment

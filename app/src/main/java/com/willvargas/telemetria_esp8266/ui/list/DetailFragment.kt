@@ -21,6 +21,7 @@ class DetailFragment : Fragment() {
 
     private lateinit var detailBinding: FragmentDetailBinding
     private val args: DetailFragmentArgs by navArgs()
+    private lateinit var idEquipo: String
 
     companion object {
         fun newInstance() = DetailFragment()
@@ -32,7 +33,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         detailBinding = FragmentDetailBinding.inflate(inflater,container,false)
 
-        obtenerContadores()
+        obtenerContadores(idEquipo)
 
         return detailBinding.root
     }
@@ -41,6 +42,7 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         val equipo : EquiposServer = args.equipo
+        idEquipo = equipo.idEquipo.toString()
         Toast.makeText(requireContext(),equipo.idEquipo,Toast.LENGTH_LONG).show()
 
         with(detailBinding) {
@@ -57,9 +59,9 @@ class DetailFragment : Fragment() {
 
     }
 
-    fun obtenerContadores(){
+    fun obtenerContadores(idEquipo: String){
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference().child("ESP01").child("contador")
+        val myRef = database.getReference().child(idEquipo).child("contador")
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
