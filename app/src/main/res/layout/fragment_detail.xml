@@ -11,10 +11,20 @@
         android:orientation="vertical">
 
 
+        <ImageView
+            android:id="@+id/imagenEquipo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/empty"
+            android:src="@android:drawable/ic_menu_gallery" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            >
 
             <LinearLayout
                 android:id="@+id/linearLayoutDer"
@@ -70,7 +80,8 @@
                     android:id="@+id/textViewDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/units_day" />
+                    android:hint="@string/units_day"
+                    />
 
                 <TextView
                     android:id="@+id/textViewCount"
@@ -156,14 +167,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imagenEquipo"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/empty"
-            android:src="@android:drawable/ic_menu_gallery" />
-
 
         <TextView
             android:id="@+id/textViewTitleNote"
@@ -177,22 +180,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="@string/description" />
+            android:hint="@string/description"
+            />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerViewMaps"
+            android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp" />
+
+
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerListDisp"
             android:name="com.willvargas.telemetria_esp8266.ui.list.dispensacionesListFragment"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
-            android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </ScrollView>

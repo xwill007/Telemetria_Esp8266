@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue
-
 import com.google.firebase.ktx.Firebase
 import com.willvargas.telemetria_esp8266.data.server.DispensacionesServer
 import com.willvargas.telemetria_esp8266.databinding.FragmentDispensacionesListBinding
