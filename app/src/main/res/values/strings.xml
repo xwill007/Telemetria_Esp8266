@@ -36,7 +36,7 @@
     <string name="input_NameAndLastname">Ingrese Nombre y Apellido del contacto principal</string>
     <string name="input_cellNumber">Ingrese un Numero celular del contacto</string>
     <string name="input_Address">Ingrese una direccion de instalación</string>
-    <string name="input_ID">Ingrese ID un Nombre que identifique al Equipo</string>
+    <string name="input_ID">*CAMPO OBLIGATORIO: Ingrese ID un Nombre que identifique al Equipo</string>
     <string name="count_dispensation">Contador de bebidas:</string>
     <string name="input_dispensation_counter">ingrese la cantidad de bebidas dispensadas a la fecha</string>
     <string name="add_image">Agregar imagen</string>
@@ -53,6 +53,37 @@
     <string name="total_units">total unidades</string>
     <string name="units_today">unidades hoy</string>
     <string name="total_units_dispensed">total unidades dispensadas</string>
+    <string name="google">GOOGLE</string>
+    <string name="digite_nombre">digite nobre ID del equipo a ELIMINAR</string>
+    <string name="eliminar">ELIMINAR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="No_Existe">No Existe</string>
+    <string name="Desea_eliminar_a">\"Desea eliminar a \"</string>
+    <string name="aceptar">aceptar</string>
+    <string name="Equipo_Eliminado">Equipo Eliminado</string>
+    <string name="cancelar">cancelar</string>
+    <string name="recordar">"Recordar "</string>
+    <string name="user_register_ok">Usuario registrado correctamente</string>
+    <string name="bad_write_Email">El correo esta mal escrito</string>
+    <string name="user_not_exist">No existe el usario</string>
+    <string name="user_already_exists">El usuario ya existe</string>
+    <string name="user_auth_firebase_ok">\" Usuario autenticado correctamente por firebase Auth\"</string>
+    <string name="equipment_added_successfully">Equipo agregado a Firebase correctamente</string>
+    <string name="equipment_not_added">ERROR Equipo NO agregado a Firebase</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="configurations">Configuraciones</string>
+    <string name="device_list">lista de equipos</string>
+    <string name="add_device">Agregar Equipo</string>
+    <string name="delete_device">Borrar Equipo</string>
+    <string name="search_image">Buscar imagen</string>
+    <string name="add_image_to_continue">Agregue o capture una imagen para continuar</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Mapas</string>
+    <string name="list">lista</string>
 
 
 </resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_agregarEquipoFragment">
+
+
+    <fragment
+        android:id="@+id/nav_mapsFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
+        android:label="@string/maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <fragment
+        android:id="@+id/nav_agregarEquipoFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.AgregarEquipoFragment"
+        android:label="@string/add_device" />
+    <fragment
+        android:id="@+id/nav_borrarEquipoFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.BorrarEquipoFragment"
+        android:label="@string/delete_device" />
+    <fragment
+        android:id="@+id/nav_listFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.list.ListFragment"
+        android:label="@string/device_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_nav_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+
+
+
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.list.DetailFragment"
+        android:label="@string/info_Equip"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="equipo"
+            app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
+    </fragment>
+
+
+
+
+</navigation>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "502419048944",
+    "project_id": "telemetriaesp8266",
+    "storage_bucket": "telemetriaesp8266.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502419048944:android:4babd929d03fd5a95cb535",
+        "android_client_info": {
+          "package_name": "com.willvargas.telemetria_esp8266"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502419048944-hrdsqff1kaps8ro5nstpi5h4232skog3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt-6VQH54IrE4QziddRV28oqjmOasajic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502419048944-hrdsqff1kaps8ro5nstpi5h4232skog3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
