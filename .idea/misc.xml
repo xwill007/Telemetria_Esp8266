@@ -8,10 +8,12 @@
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_maps.xml" value="0.15260416666666668" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/card_view_dispensaciones.xml" value="0.18" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/card_view_equipos_item.xml" value="0.33" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_agregar_equipo.xml" value="0.18" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_borrar_equipo.xml" value="0.1" />
-        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_detail.xml" value="0.33" />
+        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
+        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_dispensaciones_list.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_equipo.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_list.xml" value="0.18" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
@@ -21,7 +23,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

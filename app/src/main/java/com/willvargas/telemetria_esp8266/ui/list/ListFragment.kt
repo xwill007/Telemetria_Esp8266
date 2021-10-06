@@ -39,7 +39,7 @@ class ListFragment : Fragment() {
         _listBinding = FragmentListBinding.inflate(inflater,container,false)
 
         auth= Firebase.auth
-        equiposAdapter = EquiposAdapter(onItemClicked = {onDebtorItemClicked(it)})
+        equiposAdapter = EquiposAdapter(onItemClicked = {onItemClicked(it)})
         listBinding.equiposRecyclerView.apply{
             layoutManager = LinearLayoutManager(this@ListFragment.context)
             adapter = equiposAdapter
@@ -55,18 +55,21 @@ class ListFragment : Fragment() {
 
     }
 
-    private fun onDebtorItemClicked(equipo: EquiposServer){
+    private fun onItemClicked(equipo: EquiposServer){
         findNavController().navigate(ListFragmentDirections.actionNavListFragmentToDetailFragment(equipo=equipo))
     }
 
     private fun cargarDeFirebase() {
         val db = Firebase.firestore
-        db.collection("users").document(auth.currentUser?.email.toString()).collection("equipos").get().addOnSuccessListener{result->
-            var listaEquipos: MutableList<EquiposServer> = arrayListOf()
-            for (document in result){
-                Log.d("nombre",document.data.toString())
-                listaEquipos.add(document.toObject<EquiposServer>())
-            }
+        db.collection("users")
+            .document(auth.currentUser?.email.toString())
+            .collection("equipos")
+            .get().addOnSuccessListener{result->
+                var listaEquipos: MutableList<EquiposServer> = arrayListOf()
+                for (document in result){
+                    Log.d("nombre",document.data.toString())
+                    listaEquipos.add(document.toObject<EquiposServer>())
+                }
             equiposAdapter.appendItems(listaEquipos)
         }
     }

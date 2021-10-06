@@ -13,8 +13,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.FragmentDetailBinding
+import kotlinx.android.synthetic.main.fragment_detail.*
 
 
 class DetailFragment : Fragment() {
@@ -33,7 +35,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         detailBinding = FragmentDetailBinding.inflate(inflater,container,false)
 
-        obtenerContadores(idEquipo)
+        obtenerContadores()
 
         return detailBinding.root
     }
@@ -42,7 +44,6 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         val equipo : EquiposServer = args.equipo
-        idEquipo = equipo.idEquipo.toString()
         Toast.makeText(requireContext(),equipo.idEquipo,Toast.LENGTH_LONG).show()
 
         with(detailBinding) {
@@ -59,7 +60,9 @@ class DetailFragment : Fragment() {
 
     }
 
-    fun obtenerContadores(idEquipo: String){
+    fun obtenerContadores(){
+        val equipo : EquiposServer = args.equipo
+        idEquipo = equipo.idEquipo.toString()
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference().child(idEquipo).child("contador")
 
@@ -68,7 +71,10 @@ class DetailFragment : Fragment() {
                 if (dataSnapshot.exists()){
                     var value = dataSnapshot.getValue()
                     Log.d("contador", "Value is: $value")
-                    detailBinding.textViewDay.setText(value.toString())
+                    detailBinding.textViewCount.setText(value.toString())
+                    if (equipo.urlPicture != null){
+                        Picasso.get().load(equipo.urlPicture).into(imagenEquipo);
+                    }
 
                 }else Log.d("contador", "no existe.")
 

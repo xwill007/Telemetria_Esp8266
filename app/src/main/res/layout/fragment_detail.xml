@@ -1,185 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:orientation="vertical"
-        tools:context=".equipoFragment">
-
+        android:orientation="vertical">
 
 
         <LinearLayout
-            android:id="@+id/linearLayoutIz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="180dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewTitleId"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/linearLayoutDer"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/id_equip"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewTitleContact"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/id_equip" />
+
+                <TextView
+                    android:id="@+id/textViewContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contact" />
+
+                <TextView
+                    android:id="@+id/textViewPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone" />
+
+                <TextView
+                    android:id="@+id/textViewAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address" />
+
+                <TextView
+                    android:id="@+id/textViewLastMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_last_month" />
+
+                <TextView
+                    android:id="@+id/textViewMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_month" />
+
+                <TextView
+                    android:id="@+id/textViewLastDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_last_day" />
+
+                <TextView
+                    android:id="@+id/textViewDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_day" />
+
+                <TextView
+                    android:id="@+id/textViewCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_units" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutIz"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/contact"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewTitlePhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/phone_contact"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id_equip"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleAdress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/address"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleLastMonthCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/units_last_month"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitlePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_contact"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleMonthCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/units_month"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleAdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleLastDayCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/units_last_day"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleLastMonthCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/units_last_month"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleDayCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/units_today"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleMonthCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/units_month"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textViewTitleCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/total_units_dispensed"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewTitleLastDayCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/units_last_day"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewTitleDayCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/units_today"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewTitleCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_units_dispensed"
+                    android:textStyle="bold" />
 
 
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayoutDer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="2dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo">
-
-            <TextView
-                android:id="@+id/textViewId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/id_equip" />
-
-            <TextView
-                android:id="@+id/textViewContact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/contact" />
-
-            <TextView
-                android:id="@+id/textViewPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/phone" />
-
-            <TextView
-                android:id="@+id/textViewAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/address" />
-
-            <TextView
-                android:id="@+id/textViewLastMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/units_last_month" />
-
-            <TextView
-                android:id="@+id/textViewMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/units_month" />
-
-            <TextView
-                android:id="@+id/textViewLastDay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/units_last_day" />
-
-            <TextView
-                android:id="@+id/textViewDay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/units_day" />
-
-            <TextView
-                android:id="@+id/textViewCount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/total_units" />
-
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imagenGrafico"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/empty"
-            android:src="@drawable/ic_graficas_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutIz" />
 
         <ImageView
             android:id="@+id/imagenEquipo"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/empty"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenGrafico" />
+            android:src="@android:drawable/ic_menu_gallery" />
 
 
         <TextView
@@ -187,22 +170,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenEquipo" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="@string/description"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitleNote" />
+            android:hint="@string/description" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerListDisp"
+            android:name="com.willvargas.telemetria_esp8266.ui.list.dispensacionesListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>
