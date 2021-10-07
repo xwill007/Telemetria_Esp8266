@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,7 +18,8 @@
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/empty"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:src="@android:drawable/ic_menu_gallery"
+            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,72 +27,6 @@
             android:orientation="horizontal"
             android:baselineAligned="false"
             >
-
-            <LinearLayout
-                android:id="@+id/linearLayoutDer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/id_equip" />
-
-                <TextView
-                    android:id="@+id/textViewContact"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/contact" />
-
-                <TextView
-                    android:id="@+id/textViewPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/phone" />
-
-                <TextView
-                    android:id="@+id/textViewAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/address" />
-
-                <TextView
-                    android:id="@+id/textViewLastMonth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/units_last_month" />
-
-                <TextView
-                    android:id="@+id/textViewMonth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/units_month" />
-
-                <TextView
-                    android:id="@+id/textViewLastDay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/units_last_day" />
-
-                <TextView
-                    android:id="@+id/textViewDay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/units_day"
-                    />
-
-                <TextView
-                    android:id="@+id/textViewCount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/total_units" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayoutIz"
@@ -165,6 +101,82 @@
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutDer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:id="@+id/textViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/id_equip"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contact"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewLastMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_last_month"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_month"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewLastDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_last_day"
+                    tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/units_day"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/textViewCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_units" />
+
+
+            </LinearLayout>
+
         </LinearLayout>
 
 
@@ -181,7 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="@string/description"
-            />
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerViewMaps"
@@ -196,7 +208,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerListDisp"
-            android:name="com.willvargas.telemetria_esp8266.ui.list.dispensacionesListFragment"
+            android:name="com.willvargas.telemetria_esp8266.ui.list.DispensacionesListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

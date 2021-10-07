@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,7 +31,7 @@ class DetailFragment : Fragment() {
     private lateinit var viewModel: DetailViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
         detailBinding = FragmentDetailBinding.inflate(inflater,container,false)
 
         obtenerContadores()
@@ -44,7 +43,7 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         val equipo : EquiposServer = args.equipo
-        Toast.makeText(requireContext(),equipo.idEquipo,Toast.LENGTH_LONG).show()
+        //Toast.makeText(requireContext(),equipo.idEquipo,Toast.LENGTH_LONG).show()
 
         with(detailBinding) {
             textViewId.setText(equipo.idEquipo)
@@ -69,11 +68,11 @@ class DetailFragment : Fragment() {
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()){
-                    var value = dataSnapshot.getValue()
+                    val value = dataSnapshot.getValue()
                     Log.d("contador", "Value is: $value")
                     detailBinding.textViewCount.setText(value.toString())
                     if (equipo.urlPicture != null){
-                        Picasso.get().load(equipo.urlPicture).into(imagenEquipo);
+                        Picasso.get().load(equipo.urlPicture).into(imagenEquipo)
                     }
 
                 }else Log.d("contador", "no existe.")

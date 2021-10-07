@@ -51,19 +51,19 @@ class EquiposAdapter(
         fun bind(equipo:EquiposServer){
             with(binding) {
                 if (equipo.urlPicture != null){
-                    Picasso.get().load(equipo.urlPicture).into(pictureImageView);
+                    Picasso.get().load(equipo.urlPicture).into(pictureImageView)
                 }
                 idEquipo = equipo.idEquipo.toString()
                 idEquipoTextView.text = idEquipo
 
                 val database = FirebaseDatabase.getInstance()
-                val myRef = database.getReference().child(idEquipo).child("contador")
+                val myRef = database.reference.child(idEquipo).child("contador")
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         if (dataSnapshot.exists()){
-                            var value = dataSnapshot.getValue()
+                            val value = dataSnapshot.getValue()
                             Log.d("contador", "Value is: $value")
-                            contadorTextView.text = "contador: "+ value.toString()
+                            contadorTextView.text = "contador: "+value.toString()
                             //detailBinding.textViewDay.setText(value.toString())
 
                         }else Log.d("contador", "no existe.")

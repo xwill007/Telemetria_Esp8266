@@ -8,18 +8,18 @@
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_maps.xml" value="0.15260416666666668" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/card_view_dispensaciones.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/card_view_equipos_item.xml" value="0.33" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_agregar_equipo.xml" value="0.18" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_borrar_equipo.xml" value="0.1" />
-        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
-        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_dispensaciones_list.xml" value="0.1" />
+        <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_detail.xml" value="0.33" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_equipo.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_list.xml" value="0.18" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/APPS/Telemetria_Esp8266/app/src/main/res/menu/menu_opciones.xml" value="0.1" />
+        <entry key="..\:/Users/familia/AndroidStudioProjects/Telemetria_Esp8266/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
+        <entry key="..\:/Users/familia/AndroidStudioProjects/Telemetria_Esp8266/app/src/main/res/layout/fragment_dispensaciones_list.xml" value="0.1578125" />
       </map>
     </option>
   </component>
