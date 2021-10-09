@@ -34,18 +34,18 @@ class DispensacionesListFragment : Fragment() {
     private var _listDispBinding: FragmentDispensacionesListBinding? = null
     private val listDispBinding get() = _listDispBinding!!
 
-    //private val args: DispensacionesListFragmentArgs by navArgs()
-    //val equipo : EquiposServer = args.equipo
-    //val idEquipo = equipo.idEquipo.toString()
+    private val arg: DispensacionesListFragmentArgs by navArgs()
+    private lateinit var equipo : EquiposServer
 
     private lateinit var dispAdapter: DispensacionesAdapter
     private lateinit var auth: FirebaseAuth
+    private lateinit var IDequipo: String
 
     private var dia = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
     private var mes = (Calendar.getInstance().get(Calendar.MONTH)+1).toString()
 
     //private lateinit var idEquipo: String
-    var interfaz: comunicador? = null
+    //var interfaz: comunicador? = null
 
 
     override fun onCreateView(
@@ -69,21 +69,19 @@ class DispensacionesListFragment : Fragment() {
             cargarDeFirebase()
         }
 
-        //val args = this.arguments
-        //val inputData = args?.get("idEquipo")
-        //listDispBinding.textViewID.text = inputData.toString()
+        //idEquipo = arguments?.getString("IDequipo").toString()
+        equipo = arg.equipo!!
+        IDequipo = equipo.idEquipo.toString()
+        listDispBinding.textViewID.text = IDequipo
 
-        //val textView = getActivity().findViewById(R.id.textViewId)
-        //idEquipo = textView.getText().toString()
-        //cargarDeFirebase()
-        //listDispBinding.textViewID.setText(arguments?.getString("IDequipo")).toString()
 
         val root:View = listDispBinding.root
         return root
     }
 
     private fun onItemClicked(disp:String){
-        Toast.makeText(requireContext(),disp.toString(),Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(),disp.toString(),Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(),idEquipo,Toast.LENGTH_SHORT).show()
         //findNavController().navigate(ListFragmentDirections.actionNavListFragmentToDetailFragment(equipo=equipo))
     }
 
@@ -91,7 +89,7 @@ class DispensacionesListFragment : Fragment() {
 
         val listaDisp: MutableList<String> = arrayListOf()
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.reference.child("ESP01")
+        val myRef = database.reference.child(IDequipo)
             .child("dispensaciones")
             .child(mes)
             .child(dia)
@@ -108,4 +106,8 @@ class DispensacionesListFragment : Fragment() {
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+    }
 }

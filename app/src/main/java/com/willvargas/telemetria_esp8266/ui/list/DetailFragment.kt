@@ -49,10 +49,11 @@ class DetailFragment : Fragment() {
         //textview = getActivity()?.findViewById(R.id.textViewId)
 
         detailBinding.buttonListaDispensaciones.setOnClickListener {
-            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToDispensacionesListFragment(equipoX = equipo))
+            //interfaz?.enviarDatos(IDequipo)
+            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToDispensacionesListFragment(equipo = equipo))
             //findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMostrarListaFragment())
             //Toast.makeText(requireContext(),IDequipo,Toast.LENGTH_LONG).show()
-            interfaz?.enviarDatos(IDequipo.toString())
+            //interfaz?.enviarDatos(IDequipo.toString())
         }
 
         obtenerContadores()
@@ -65,7 +66,6 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         equipo = args.equipo
         IDequipo = equipo.idEquipo.toString()
-
 
         with(detailBinding) {
             textViewId.setText(equipo.idEquipo)
@@ -83,7 +83,7 @@ class DetailFragment : Fragment() {
     }
 
     fun obtenerContadores(){
-        val equipo : EquiposServer = args.equipo
+        equipo = args.equipo
         IDequipo = equipo.idEquipo.toString()
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference().child(IDequipo).child("contador")
