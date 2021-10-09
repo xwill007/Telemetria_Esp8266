@@ -68,8 +68,9 @@ class DispensacionesListFragment : Fragment() {
             Toast.makeText(requireContext(),"fecha: $dia/$mes/ ",Toast.LENGTH_SHORT).show()
             cargarDeFirebase()
         }
-        val args = this.arguments
-        val inputData = args?.get("idEquipo")
+
+        //val args = this.arguments
+        //val inputData = args?.get("idEquipo")
         //listDispBinding.textViewID.text = inputData.toString()
 
         //val textView = getActivity().findViewById(R.id.textViewId)

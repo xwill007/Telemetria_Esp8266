@@ -125,6 +125,6 @@ class MainActivity : AppCompatActivity(), comunicador {
         val args = Bundle()
         args.putString("IDequipo",IDequipo)
         fragment.arguments = args
-        transaction.add(R.id.framelayoutMostrarLista,fragment).commit()
+        transaction.add(R.id.frameLayoutDispensaciones,fragment).commit()
     }
 }

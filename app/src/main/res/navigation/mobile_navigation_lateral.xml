@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_agregarEquipoFragment">
+    app:startDestination="@+id/nav_listFragment">
 
 
     <fragment
@@ -30,10 +30,6 @@
             app:destination="@id/detailFragment" />
     </fragment>
 
-
-
-
-
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.list.DetailFragment"
@@ -45,14 +41,22 @@
         <action
             android:id="@+id/action_detailFragment_to_mostrarListaFragment"
             app:destination="@id/mostrarListaFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_dispensacionesListFragment"
+            app:destination="@id/dispensacionesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/mostrarListaFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.list.MostrarListaFragment"
         android:label="fragment_mostrar_lista"
-        tools:layout="@layout/fragment_mostrar_lista" >
+        tools:layout="@layout/fragment_mostrar_lista" />
+    <fragment
+        android:id="@+id/dispensacionesListFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.list.DispensacionesListFragment"
+        android:label="fragment_dispensaciones_list"
+        tools:layout="@layout/fragment_dispensaciones_list" >
         <argument
-            android:name="equipo"
+            android:name="equipoX"
             app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
     </fragment>
 

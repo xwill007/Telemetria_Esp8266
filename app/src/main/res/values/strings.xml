@@ -84,6 +84,7 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="maps">Mapas</string>
     <string name="list">lista</string>
+    <string name="mostar_lista_dispensaciones">Mostar lista</string>
 
 
 </resources>

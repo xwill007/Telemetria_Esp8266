@@ -49,7 +49,8 @@ class DetailFragment : Fragment() {
         //textview = getActivity()?.findViewById(R.id.textViewId)
 
         detailBinding.buttonListaDispensaciones.setOnClickListener {
-            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMostrarListaFragment(equipo = equipo))
+            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToDispensacionesListFragment(equipoX = equipo))
+            //findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMostrarListaFragment())
             //Toast.makeText(requireContext(),IDequipo,Toast.LENGTH_LONG).show()
             interfaz?.enviarDatos(IDequipo.toString())
         }
@@ -116,7 +117,7 @@ class DetailFragment : Fragment() {
     //detailFragment.arguments = args
     //transaction.add(R.id.textViewId,detailFragment).commit()
 
-
+/*
  fun enviarDatoEntreFragments(idEquipo: String?) {
 
      val datosAEnviar = Bundle()
@@ -142,7 +143,7 @@ class DetailFragment : Fragment() {
      //fragmentTransaction.addToBackStack(null);
      //fragmentTransaction.commit();
  }
-
+*/
 
 
        override fun onAttach(context: Context) {
