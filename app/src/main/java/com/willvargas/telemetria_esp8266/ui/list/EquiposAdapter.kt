@@ -17,7 +17,7 @@ import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.CardViewEquiposItemBinding
 
 
-lateinit var idEquipo: String
+//lateinit var idEquipo: String
 
 class EquiposAdapter(
 
@@ -53,7 +53,7 @@ class EquiposAdapter(
                 if (equipo.urlPicture != null){
                     Picasso.get().load(equipo.urlPicture).into(pictureImageView)
                 }
-                idEquipo = equipo.idEquipo.toString()
+                val idEquipo = equipo.idEquipo.toString()
                 idEquipoTextView.text = idEquipo
 
                 val database = FirebaseDatabase.getInstance()

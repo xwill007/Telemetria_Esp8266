@@ -9,21 +9,21 @@ import com.willvargas.telemetria_esp8266.databinding.CardViewDispensacionesBindi
 
 
 class DispensacionesAdapter (
-    private val onItemClicked: (Double) -> Unit,
+    private val onItemClicked: (String) -> Unit,
 ): RecyclerView.Adapter<DispensacionesAdapter.ViewHolder>() {
 
-    private var listaDisp: MutableList<Double> = mutableListOf()
+    private var listaDisp: MutableList<String> = mutableListOf()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
+    ): DispensacionesAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_view_dispensaciones, parent, false)
-        return ViewHolder(view)
+        return DispensacionesAdapter.ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DispensacionesAdapter.ViewHolder, position: Int) {
         holder.bind(listaDisp[position])
         holder.itemView.setOnClickListener { onItemClicked(listaDisp[position]) }
     }
@@ -32,7 +32,7 @@ class DispensacionesAdapter (
         return listaDisp.size
     }
 
-    fun appendItems(newItems: MutableList<Double>) {
+    fun appendItems(newItems: MutableList<String>) {
         listaDisp.clear()
         listaDisp.addAll(newItems)
         notifyDataSetChanged()
@@ -40,7 +40,7 @@ class DispensacionesAdapter (
 
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){
         private val binding = CardViewDispensacionesBinding.bind(view)
-        fun bind(dispensacion:Double){
+        fun bind(dispensacion:String){
             with(binding) {
                 textViewDato.text = dispensacion.toString()
                 //if (disp.urlPicture != null){

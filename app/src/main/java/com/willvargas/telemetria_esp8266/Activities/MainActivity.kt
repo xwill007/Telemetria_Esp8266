@@ -15,17 +15,19 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.willvargas.telemetria_esp8266.MiBaseDeDatosApp
+import com.willvargas.telemetria_esp8266.Activities.ui.comunicador
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
-import com.willvargas.telemetria_esp8266.data.local.dao.UserDAO
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
+import com.willvargas.telemetria_esp8266.ui.list.MostrarListaFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), comunicador {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -114,5 +116,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun enviarDatos(IDequipo: String) {
+        val manager: FragmentManager = getSupportFragmentManager()
+        val transaction: FragmentTransaction = manager.beginTransaction()
+        val fragment = MostrarListaFragment()
+        val args = Bundle()
+        args.putString("IDequipo",IDequipo)
+        fragment.arguments = args
+        transaction.add(R.id.framelayoutMostrarLista,fragment).commit()
     }
 }

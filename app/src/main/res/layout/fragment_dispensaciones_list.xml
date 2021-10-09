@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".ui.list.DispensacionesListFragment">
 
+    <TextView
+        android:id="@+id/textViewID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TextView" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"

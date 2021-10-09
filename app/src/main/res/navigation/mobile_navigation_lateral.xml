@@ -42,9 +42,19 @@
         <argument
             android:name="equipo"
             app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
+        <action
+            android:id="@+id/action_detailFragment_to_mostrarListaFragment"
+            app:destination="@id/mostrarListaFragment" />
     </fragment>
-
-
+    <fragment
+        android:id="@+id/mostrarListaFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.list.MostrarListaFragment"
+        android:label="fragment_mostrar_lista"
+        tools:layout="@layout/fragment_mostrar_lista" >
+        <argument
+            android:name="equipo"
+            app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
+    </fragment>
 
 
 </navigation>
