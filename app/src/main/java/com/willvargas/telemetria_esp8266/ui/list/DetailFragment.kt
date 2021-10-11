@@ -54,7 +54,6 @@ class DetailFragment : Fragment() {
         //textview = getActivity()?.findViewById(R.id.textViewId)
 
         detailBinding.buttonListaDispensaciones.setOnClickListener {
-            //interfaz?.enviarDatos(IDequipo)
             findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToDispensacionesListFragment(equipo = equipo))
             //findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMostrarListaFragment())
             //Toast.makeText(requireContext(),IDequipo,Toast.LENGTH_LONG).show()
@@ -71,6 +70,7 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         equipo = args.equipo
         IDequipo = equipo.idEquipo.toString()
+        interfaz?.enviarDatos(IDequipo)
 
         with(detailBinding) {
             textViewId.setText(equipo.idEquipo)

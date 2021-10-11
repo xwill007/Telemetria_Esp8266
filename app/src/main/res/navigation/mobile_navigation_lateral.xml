@@ -7,12 +7,6 @@
 
 
     <fragment
-        android:id="@+id/nav_mapsFragment"
-        android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
-        android:label="@string/maps"
-        tools:layout="@layout/fragment_maps" />
-
-    <fragment
         android:id="@+id/nav_agregarEquipoFragment"
         android:name="com.willvargas.telemetria_esp8266.ui.AgregarEquipoFragment"
         android:label="@string/add_device" />
@@ -28,6 +22,13 @@
         <action
             android:id="@+id/action_nav_listFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+
+        <argument
+            android:name="equipo"
+            app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
+        <action
+            android:id="@+id/action_nav_listFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
 
     <fragment
@@ -57,6 +58,15 @@
             app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer"
             app:nullable="true"
             android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.willvargas.telemetria_esp8266.ui.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <argument
+            android:name="equipo"
+            app:argType="com.willvargas.telemetria_esp8266.data.server.EquiposServer" />
     </fragment>
 
 

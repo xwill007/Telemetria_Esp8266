@@ -24,7 +24,9 @@ import com.willvargas.telemetria_esp8266.Activities.ui.comunicador
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
+import com.willvargas.telemetria_esp8266.ui.MapsFragment
 import com.willvargas.telemetria_esp8266.ui.list.DispensacionesListFragment
+import kotlinx.android.synthetic.main.fragment_maps.*
 
 
 class MainActivity : AppCompatActivity(), comunicador {
@@ -68,7 +70,6 @@ class MainActivity : AppCompatActivity(), comunicador {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_agregarEquipoFragment,
             R.id.nav_listFragment,
-            R.id.nav_mapsFragment,
             R.id.nav_borrarEquipoFragment
             ), drawerLayout)
         this.setupActionBarWithNavController(navController, appBarConfiguration)
@@ -121,10 +122,10 @@ class MainActivity : AppCompatActivity(), comunicador {
     override fun enviarDatos(IDequipo: String) {
         val manager: FragmentManager = getSupportFragmentManager()
         val transaction: FragmentTransaction = manager.beginTransaction()
-        val fragment = DispensacionesListFragment()
+        val fragment = MapsFragment()
         val args = Bundle()
         args.putString("IDequipo",IDequipo)
         fragment.arguments = args
-        transaction.add(R.id.frameLayoutDispensaciones,fragment).commit()
+        transaction.add(R.id.mapFragment,fragment).commit()
     }
 }
