@@ -101,6 +101,7 @@
         android:layout_marginStart="10dp"
         android:text="@string/recordar"
         android:textColorLink="@color/Verde_700"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
 
