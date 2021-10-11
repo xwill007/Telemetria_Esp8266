@@ -24,7 +24,7 @@ import com.willvargas.telemetria_esp8266.Activities.ui.comunicador
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.R.id.textViewHeaderNombre
 import com.willvargas.telemetria_esp8266.databinding.ActivityMainBinding
-import com.willvargas.telemetria_esp8266.ui.list.MostrarListaFragment
+import com.willvargas.telemetria_esp8266.ui.list.DispensacionesListFragment
 
 
 class MainActivity : AppCompatActivity(), comunicador {
@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity(), comunicador {
     override fun enviarDatos(IDequipo: String) {
         val manager: FragmentManager = getSupportFragmentManager()
         val transaction: FragmentTransaction = manager.beginTransaction()
-        val fragment = MostrarListaFragment()
+        val fragment = DispensacionesListFragment()
         val args = Bundle()
         args.putString("IDequipo",IDequipo)
         fragment.arguments = args

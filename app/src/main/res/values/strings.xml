@@ -36,7 +36,7 @@
     <string name="input_NameAndLastname">Ingrese Nombre y Apellido del contacto principal</string>
     <string name="input_cellNumber">Ingrese un Numero celular del contacto</string>
     <string name="input_Address">Ingrese una direccion de instalación</string>
-    <string name="input_ID">*CAMPO OBLIGATORIO: Ingrese ID un Nombre que identifique al Equipo</string>
+    <string name="input_ID">*CAMPO OBLIGATORIO: Ingrese el ID del equipo (Nombre que identifica al Equipo en la base de datos)</string>
     <string name="count_dispensation">Contador de bebidas:</string>
     <string name="input_dispensation_counter">ingrese la cantidad de bebidas dispensadas a la fecha</string>
     <string name="add_image">Agregar imagen</string>

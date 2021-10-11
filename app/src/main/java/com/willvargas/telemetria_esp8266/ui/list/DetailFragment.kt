@@ -8,20 +8,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import com.willvargas.telemetria_esp8266.Activities.ui.comunicador
 import com.willvargas.telemetria_esp8266.R
 import com.willvargas.telemetria_esp8266.data.server.EquiposServer
 import com.willvargas.telemetria_esp8266.databinding.FragmentDetailBinding
 import kotlinx.android.synthetic.main.fragment_detail.*
+import java.util.*
 
 
 //lateinit var idEquipo: String
@@ -30,8 +30,13 @@ class DetailFragment : Fragment() {
 
     private lateinit var detailBinding: FragmentDetailBinding
     private val args: DetailFragmentArgs by navArgs()
+    private var ayer = (Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1).toString()
+    private var dia = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
+    private var mes = (Calendar.getInstance().get(Calendar.MONTH)+1).toString()
+    private var mesAnt = (Calendar.getInstance().get(Calendar.MONTH)).toString()
     private lateinit var equipo : EquiposServer
     private lateinit var IDequipo: String
+    private lateinit var unidadesHoy: String
 
     var interfaz: comunicador? = null
     //private lateinit var textview: TextView
@@ -86,29 +91,49 @@ class DetailFragment : Fragment() {
         equipo = args.equipo
         IDequipo = equipo.idEquipo.toString()
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference().child(IDequipo).child("contador")
+        val myRefTotal = database.getReference().child(IDequipo).child("contador")
 
+        //val myRefDia = database.getReference().child(IDequipo).child("dispensaciones").child("mes").child("dia").child("totalDia")
+        val myRefAyer = database.getReference().child(IDequipo).child("dispensaciones").child(mes).child(ayer).child("totalDia")
+        val myRefDia = database.getReference().child(IDequipo).child("dispensaciones").child(mes).child(dia).child("totalDia")
+        val myRefMes = database.getReference().child(IDequipo).child("dispensaciones").child(mes).child("totalMes")
+        val myRefMesAnt = database.getReference().child(IDequipo).child("dispensaciones").child(mesAnt).child("totalMes")
+        obtenerImagen(myRefTotal,detailBinding.imagenEquipo)
+        obtenerUnidades(myRefTotal,detailBinding.textViewCount)
+        obtenerUnidades(myRefMes,detailBinding.textViewMonth)
+        obtenerUnidades(myRefDia,detailBinding.textViewDay)
+        obtenerUnidades(myRefAyer,detailBinding.textViewLastDay)
+        obtenerUnidades(myRefMesAnt,detailBinding.textViewLastMonth)
+    }
+
+    private fun obtenerUnidades(myRef: DatabaseReference, textViewX: TextView?) {
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()){
                     val value = dataSnapshot.getValue()
-                    Log.d("contador", "Value is: $value")
-                    detailBinding.textViewCount.setText(value.toString())
-                    if (equipo.urlPicture != null){
-                        Picasso.get().load(equipo.urlPicture).into(imagenEquipo)
-                    }
-
-                }else Log.d("contador", "no existe.")
-
+                    textViewX?.setText(value.toString())
+                }else
+                    Log.d("contador", "no existe.")
             }
             override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
                 Log.w("contador", "Failed to read value.", error.toException())
             }
-
         })
-
     }
+
+    private fun obtenerImagen(myRef: DatabaseReference, imagenEquipo: ImageView) {
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()){
+                    if (equipo.urlPicture != null){ Picasso.get().load(equipo.urlPicture).into(imagenEquipo)}
+                }else Log.d("Imagen", "no existe.")
+            }override fun onCancelled(error: DatabaseError) {
+                Log.w("Imagen", "Failed to read value.", error.toException())
+            }
+        })
+    }
+
+
 
     //val manager: FragmentManager = getSupportFragmentManager()
     //val transaction: FragmentTransaction = manager.beginTransaction()
@@ -146,7 +171,7 @@ class DetailFragment : Fragment() {
 */
 
 
-       override fun onAttach(context: Context) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
             interfaz = context as comunicador

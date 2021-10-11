@@ -78,19 +78,6 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:helperText="@string/input_dispensation_counter">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textViewCount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/count_dispensation"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:helperText="@string/input_description">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -108,12 +95,6 @@
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/add_image_to_continue"
         app:srcCompat="@drawable/ic_baseline_camera" />
-
-    <Button
-        android:id="@+id/buscar_imagen_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search_image" />
 
     <TextView
         android:id="@+id/textView"

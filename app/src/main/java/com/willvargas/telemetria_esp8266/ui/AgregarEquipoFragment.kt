@@ -82,7 +82,7 @@ class AgregarEquipoFragment : Fragment() {
             EditTextPhone.setText(" ")
             EditTextAddress.setText(" ")
             textViewId.setText(" ")
-            textViewCount.setText(" ")
+            //textViewCount.setText(" ")
             textViewNote.setText(" ")
             takePictureImageView.setImageBitmap(null)
         }
@@ -129,7 +129,7 @@ class AgregarEquipoFragment : Fragment() {
                     val telefonoContacto: String? = EditTextPhone.text.toString()
                     val direccion: String? = EditTextAddress.text.toString()
                     val idEquipo: String? = textViewId.text.toString()
-                    val contadorBebidas: String? = textViewCount.text.toString()
+                    //val contadorBebidas: String? = textViewCount.text.toString()
                     val descripcion: String? = textViewNote.text.toString()
                     val emailUsuario = auth.currentUser?.email
 
@@ -155,7 +155,7 @@ class AgregarEquipoFragment : Fragment() {
                         telefonoContacto = telefonoContacto,
                         direccion = direccion,
                         idEquipo = idEquipo,
-                        contadorBebidas = contadorBebidas,
+                        //contadorBebidas = contadorBebidas,
                         descripcion = descripcion,
                         emailUsuario = emailUsuario,
                         urlPicture = url,
